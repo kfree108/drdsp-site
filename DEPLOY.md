@@ -4,8 +4,28 @@ The site is a single static page served by GitHub Pages from `main` / root of
 `kfree108/drdsp-site`.
 
 - **Live now:** https://kfree108.github.io/drdsp-site/
-- **Target domain:** `drdsp.ai` (set as the Pages custom domain, in `CNAME`)
+- **Target domain:** `drdsp.ai` — **not yet attached.** See "Why the custom
+  domain is deliberately not set yet" below.
 - **Status:** the domain still points at Squarespace. **DNS has not been changed.**
+
+## Why the custom domain is deliberately not set yet
+
+There is no `CNAME` file at the repo root right now. The finished one is parked
+at `cutover/CNAME` and contains exactly `drdsp.ai`.
+
+Two reasons, and they point the same way:
+
+1. **You get a working preview today.** The moment a custom domain is attached,
+   GitHub 301-redirects `kfree108.github.io/drdsp-site/` to `drdsp.ai` — which
+   is still the Squarespace parking page. Attaching it now would mean there is
+   no URL anywhere that shows the actual site until DNS moves.
+2. **It avoids the certificate failure that cost us time today.** Attaching the
+   custom domain while stale DNS is still resolving makes GitHub queue
+   certificate issuance against the old records, fail validation, and give up
+   silently — no banner, no retry.
+
+Attaching it *after* propagation is confirmed is both the fix and the correct
+first-time sequence. Step 4 below is where it happens.
 
 ---
 
@@ -82,12 +102,17 @@ So, in order:
    If any resolver still returns a Squarespace IP, wait longer. A second opinion:
    https://dnschecker.org/#A/drdsp.ai
 
-4. **Only then**, in GitHub → repo → Settings → Pages, clear the custom domain,
-   re-enter `drdsp.ai`, and save. Or from the CLI:
+4. **Only then**, attach the custom domain. Either in GitHub → repo → Settings →
+   Pages, enter `drdsp.ai` and save; or from the CLI, which also restores the
+   `CNAME` file to the repo root:
 
    ```sh
+   cd /Users/kfree108/Desktop/repos/drdsp-site
+   cp cutover/CNAME CNAME && git add CNAME && git commit -m "Attach drdsp.ai" && git push
    gh api -X PUT repos/kfree108/drdsp-site/pages -f cname="drdsp.ai"
    ```
+
+   Do this **once**. If it does not go green, do not keep re-saving — see step 5.
 
 5. Wait for "DNS check successful", then tick **Enforce HTTPS**. The certificate
    usually issues within a few minutes and can take up to an hour. If it is
@@ -119,5 +144,6 @@ So, in order:
 | `assets/engagement.js`, `assets/engagement.css` | CTA placement, 30% scroll popup, GA4 events |
 | `robots.txt` | Allow-all incl. GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot, Google-Extended |
 | `sitemap.xml` | Single URL |
-| `CNAME` | `drdsp.ai` — do not delete, Pages rewrites it on save |
+| `cutover/CNAME` | `drdsp.ai` — copy to the repo root at step 4, not before |
+| `DEPLOY.md` | This file |
 | `.nojekyll` | Stops Pages running the content through Jekyll |
