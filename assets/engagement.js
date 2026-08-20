@@ -127,13 +127,29 @@
     wrap.setAttribute('role', 'dialog');
     wrap.setAttribute('aria-modal', 'true');
     wrap.setAttribute('aria-labelledby', 'fc-pop-t');
+    // B2B interstitials fail for predictable reasons, so this one is built against them:
+    //   · it names the product and the parent company, because on a comparison page the
+    //     reader has never heard of us and "book a demo" answers nothing
+    //   · it states the risk reversal explicitly — free, no contract, no card
+    //   · it carries one credibility line, because a two-month-old domain has none
+    //   · it offers a real second option, since most readers are comparing, not buying,
+    //     and a modal with only one exit reads as a trap
+    //   · the dismiss is worded honestly rather than shamed ("no thanks, I'm comparing")
     wrap.innerHTML =
       '<div class="fc-pop-card">' +
         '<button class="fc-pop-x" aria-label="Close">×</button>' +
+        (cfg.eyebrow ? '<p class="fc-pop-eyebrow">' + cfg.eyebrow + '</p>' : '') +
         '<h3 id="fc-pop-t">' + (cfg.title || 'Want this run on your account?') + '</h3>' +
         '<p>' + (cfg.body || 'Twenty minutes on your real numbers. First 30 days free.') + '</p>' +
+        (cfg.points && cfg.points.length
+          ? '<ul class="fc-pop-pts">' + cfg.points.map(function (t) {
+              return '<li>' + t + '</li>'; }).join('') + '</ul>'
+          : '') +
         '<a class="fc-cta-btn" href="' + C.href + '" target="_blank" rel="noopener">' +
           (cfg.label || LABEL) + ' →</a>' +
+        (cfg.proof ? '<p class="fc-pop-proof">' + cfg.proof + '</p>' : '') +
+        '<button class="fc-pop-no">' +
+          (cfg.dismiss || 'No thanks — I’m just comparing') + '</button>' +
       '</div>';
     document.body.appendChild(wrap);
     if (!reduce) requestAnimationFrame(function () { wrap.classList.add('on'); });
@@ -159,6 +175,8 @@
       }
     }
     x.addEventListener('click', function () { close('close_button'); });
+    var no = wrap.querySelector('.fc-pop-no');
+    if (no) no.addEventListener('click', function () { close('not_now'); });
     wrap.addEventListener('click', function (e) { if (e.target === wrap) close('backdrop'); });
     document.addEventListener('keydown', onKey);
     wrap.querySelector('a').addEventListener('click', function () {
@@ -182,7 +200,8 @@
           track('scroll_depth', { percent_scrolled: parseInt(m[1], 10) });
         });
       });
-      if (!popped && d >= 0.30) {
+      var longEnough = document.documentElement.scrollHeight > window.innerHeight * 2.2;
+      if (!popped && longEnough && d >= 0.30) {
         popped = true;
         try { sessionStorage.setItem('fc_popped', '1'); } catch (e) {}
         popup();
