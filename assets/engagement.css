@@ -109,32 +109,83 @@
   .fc-pop-card { padding: 26px 22px 22px; }
 }
 
-/* ── popup detail ─────────────────────────────────────────────────────────
-   Added after review: the first version named no product and gave the reader
-   only one way out, which reads as a trap on a comparison page. */
+
+/* ── popup ────────────────────────────────────────────────────────────────
+   Rebuilt after review. What made the first version read as generated:
+   coloured dot bullets, uniform spacing with no rhythm, a floating proof
+   line, and a loud saturated button. This version uses a specification list
+   with hairline rules, a real hierarchy of sizes, and a bordered credibility
+   strip — the visual language of a product sheet rather than a promo card. */
+
+.fc-pop-card{
+  padding:0;                       /* sections own their own padding now */
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--accent,#2dd4a7) 22%,transparent);
+}
+/* a single hairline of accent at the top edge, instead of colour everywhere */
+.fc-pop-card::before{
+  content:"";display:block;height:2px;
+  background:linear-gradient(90deg,var(--accent,#2dd4a7),transparent 78%);
+}
+
 .fc-pop-eyebrow{
-  margin:0 0 8px;font-size:10px;font-weight:700;letter-spacing:.15em;
-  text-transform:uppercase;color:var(--accent,#2dd4a7);
+  margin:22px 30px 0;font-size:9.5px;font-weight:700;letter-spacing:.19em;
+  text-transform:uppercase;color:var(--dim,#5c5c6b);
 }
-.fc-pop-pts{
-  list-style:none;margin:0 0 18px;padding:0;display:grid;gap:7px;
-  font-size:13px;color:var(--dim,#5c5c6b);
+.fc-pop-card h3{
+  margin:9px 30px 0;font-size:23px;line-height:1.18;letter-spacing:-.022em;
+  text-wrap:balance;
 }
-.fc-pop-pts li{position:relative;padding-left:19px;line-height:1.5}
-.fc-pop-pts li::before{
-  content:"";position:absolute;left:2px;top:.52em;width:7px;height:7px;
-  border-radius:50%;background:var(--accent,#2dd4a7);
-}
-.fc-pop-proof{
-  margin:11px 0 0!important;font-size:11.5px!important;line-height:1.55;
+.fc-pop-lede{
+  margin:11px 30px 0!important;font-size:14px!important;line-height:1.62;
   color:var(--dim,#5c5c6b);
 }
-.fc-pop-no{
-  display:block;width:100%;margin:14px 0 0;padding:7px 0;
-  background:none;border:0;cursor:pointer;
-  font:inherit;font-size:12.5px;color:var(--dim,#5c5c6b);
-  text-decoration:underline;text-underline-offset:3px;
+
+/* specification list — key on the left, value on the right, hairline between */
+.fc-pop-spec{margin:20px 0 0;padding:0;border-top:1px solid var(--line,#e6e4ee)}
+.fc-pop-spec>div{
+  display:grid;grid-template-columns:96px 1fr;gap:14px;
+  padding:10px 30px;border-bottom:1px solid var(--line,#e6e4ee);
 }
-.fc-pop-no:hover{color:var(--ink,#0b0912)}
-.fc-pop-no:focus-visible{outline:2px solid var(--accent,#2dd4a7);outline-offset:2px;border-radius:6px}
-.fc-pop-card .fc-cta-btn{display:block;text-align:center}
+.fc-pop-spec dt{
+  margin:0;font-size:9.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--dim,#5c5c6b);padding-top:2px;
+}
+.fc-pop-spec dd{margin:0;font-size:13px;line-height:1.5}
+
+.fc-pop-card .fc-cta-btn{
+  display:block;margin:22px 30px 0;text-align:center;
+  padding:13px 20px;font-size:14.5px;letter-spacing:-.005em;
+  border-radius:9px;
+}
+.fc-pop-proof{
+  margin:16px 0 0!important;padding:11px 30px;
+  border-top:1px solid var(--line,#e6e4ee);
+  background:color-mix(in srgb,var(--dim,#5c5c6b) 5%,transparent);
+  font-size:11.5px!important;line-height:1.55;color:var(--dim,#5c5c6b);
+  font-variant-numeric:tabular-nums;
+}
+.fc-pop-no{
+  display:block;width:100%;margin:0;padding:11px 0 15px;
+  background:none;border:0;cursor:pointer;
+  font:inherit;font-size:12px;color:var(--dim,#5c5c6b);
+}
+.fc-pop-no:hover{color:var(--ink,#0b0912);text-decoration:underline;text-underline-offset:3px}
+.fc-pop-no:focus-visible{outline:2px solid var(--accent,#2dd4a7);outline-offset:-2px}
+
+/* close: quiet until it is actually wanted */
+.fc-pop-x{
+  top:14px;right:14px;width:28px;height:28px;
+  display:grid;place-items:center;border-radius:7px;
+  color:var(--dim,#5c5c6b);font-size:0;opacity:.65;transition:opacity .12s,background .12s;
+}
+.fc-pop-x:hover{opacity:1;background:color-mix(in srgb,var(--dim,#5c5c6b) 12%,transparent)}
+.fc-pop-x:focus-visible{opacity:1;outline:1.5px solid var(--accent,#2dd4a7);outline-offset:1px}
+
+@media (max-width:520px){
+  .fc-pop-eyebrow,.fc-pop-card h3,.fc-pop-lede{margin-left:22px;margin-right:22px}
+  .fc-pop-spec>div{padding-left:22px;padding-right:22px;grid-template-columns:84px 1fr;gap:11px}
+  .fc-pop-card .fc-cta-btn{margin-left:22px;margin-right:22px}
+  .fc-pop-proof{padding-left:22px;padding-right:22px}
+  .fc-pop-card h3{font-size:20px}
+}

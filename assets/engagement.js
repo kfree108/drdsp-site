@@ -135,18 +135,33 @@
     //   · it offers a real second option, since most readers are comparing, not buying,
     //     and a modal with only one exit reads as a trap
     //   · the dismiss is worded honestly rather than shamed ("no thanks, I'm comparing")
+    // Structured as a short product fact-sheet rather than a stack of marketing
+    // blocks. The points are a definition list with hairline rules — coloured
+    // dot bullets are the single most recognisable "generated" tell, and a
+    // key/value row reads as specification, which is what a buyer is scanning for.
+    var pts = "";
+    if (cfg.points && cfg.points.length) {
+      pts = '<dl class="fc-pop-spec">' + cfg.points.map(function (t) {
+        var i = t.indexOf('|');
+        var k = i > -1 ? t.slice(0, i).trim() : '';
+        var v = i > -1 ? t.slice(i + 1).trim() : t;
+        return '<div><dt>' + k + '</dt><dd>' + v + '</dd></div>';
+      }).join('') + '</dl>';
+    }
     wrap.innerHTML =
       '<div class="fc-pop-card">' +
-        '<button class="fc-pop-x" aria-label="Close">×</button>' +
+        '<button class="fc-pop-x" aria-label="Close">' +
+          '<svg viewBox="0 0 14 14" width="13" height="13" aria-hidden="true">' +
+          '<path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" ' +
+          'stroke-linecap="round" fill="none"/></svg>' +
+        '</button>' +
         (cfg.eyebrow ? '<p class="fc-pop-eyebrow">' + cfg.eyebrow + '</p>' : '') +
-        '<h3 id="fc-pop-t">' + (cfg.title || 'Want this run on your account?') + '</h3>' +
-        '<p>' + (cfg.body || 'Twenty minutes on your real numbers. First 30 days free.') + '</p>' +
-        (cfg.points && cfg.points.length
-          ? '<ul class="fc-pop-pts">' + cfg.points.map(function (t) {
-              return '<li>' + t + '</li>'; }).join('') + '</ul>'
-          : '') +
+        '<h3 id="fc-pop-t">' + (cfg.title || 'Want this running your account?') + '</h3>' +
+        '<p class="fc-pop-lede">' +
+          (cfg.body || 'Twenty minutes on your real numbers. First 30 days free.') + '</p>' +
+        pts +
         '<a class="fc-cta-btn" href="' + C.href + '" target="_blank" rel="noopener">' +
-          (cfg.label || LABEL) + ' →</a>' +
+          (cfg.label || LABEL) + '</a>' +
         (cfg.proof ? '<p class="fc-pop-proof">' + cfg.proof + '</p>' : '') +
         '<button class="fc-pop-no">' +
           (cfg.dismiss || 'No thanks — I’m just comparing') + '</button>' +
