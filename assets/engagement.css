@@ -1,0 +1,110 @@
+/* engagement.css — styling for the injected CTAs and the scroll popup.
+   Inherits the host page's tokens where they exist, with its own fallbacks,
+   so it drops onto any of the brand sites without a restyle. */
+
+.fc-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin: 34px 0;
+  padding: 20px 22px;
+  border: 1px solid var(--line, #e6e4ee);
+  border-left: 3px solid var(--accent, #2dd4a7);
+  border-radius: 12px;
+  background: var(--card, #fff);
+}
+
+.fc-cta-btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 8px;
+  background: var(--accent, #2dd4a7);
+  color: var(--accent-fg, #06231a);
+  font-weight: 650;
+  font-size: 14.5px;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: transform .12s ease, filter .12s ease;
+}
+.fc-cta-btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.fc-cta-btn:focus-visible {
+  outline: 2px solid var(--accent, #2dd4a7);
+  outline-offset: 3px;
+}
+
+.fc-cta-sub {
+  font-size: 12.5px;
+  color: var(--dim, #5c5c6b);
+}
+
+/* ── popup ─────────────────────────────────────────────────────────────── */
+.fc-pop {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(6, 5, 12, .55);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.fc-pop.on { opacity: 1; }
+
+.fc-pop-card {
+  position: relative;
+  max-width: 430px;
+  width: 100%;
+  padding: 30px 30px 26px;
+  border-radius: 16px;
+  background: var(--card, #fff);
+  color: var(--ink, #0b0912);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
+  transform: translateY(10px) scale(.98);
+  transition: transform .2s ease;
+}
+.fc-pop.on .fc-pop-card { transform: none; }
+
+.fc-pop-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+.fc-pop-card p {
+  margin: 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--dim, #5c5c6b);
+}
+
+.fc-pop-x {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--dim, #5c5c6b);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+.fc-pop-x:hover { background: var(--soft, #f0edf7); }
+.fc-pop-x:focus-visible {
+  outline: 2px solid var(--accent, #2dd4a7);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-pop, .fc-pop-card, .fc-cta-btn { transition: none; }
+  .fc-cta-btn:hover { transform: none; }
+}
+
+@media (max-width: 520px) {
+  .fc-cta { flex-direction: column; align-items: flex-start; padding: 17px 18px; }
+  .fc-pop-card { padding: 26px 22px 22px; }
+}

@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dr. DSP — Fable 5 Runs Your Amazon DSP. Measured Honestly, In AMC.</title>
+<meta name="description" content="Dr. DSP is a managed Amazon DSP service — Demand-Side Platform programmatic advertising, not Delivery Service Partner courier work. Powered by Fable 5, operated by a team with $500M+ in managed spend across 100+ brands. Audiences, retargeting and new-to-brand acquisition, reconciled in Amazon Marketing Cloud because last-click cannot prove incrementality. You choose the approval level. Orbit software included free. Book a demo — first 30 days free." />
+<link rel="canonical" href="https://drdsp.ai/" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dr. DSP — Fable 5 runs your Amazon DSP" />
+<meta property="og:description" content="Managed Amazon Demand-Side Platform advertising, measured in Amazon Marketing Cloud instead of last-click. You pick the approval level. Orbit software included free. First 30 days free." />
+<meta property="og:url" content="https://drdsp.ai/" />
+<meta property="og:image" content="https://drdsp.ai/assets/drdsp-poster.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/engagement.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebPage","@id":"https://drdsp.ai/#page","url":"https://drdsp.ai/","name":"Dr. DSP — Fable 5 runs your Amazon DSP","description":"Managed Amazon Demand-Side Platform advertising, powered by Fable 5 and measured in Amazon Marketing Cloud. Not Delivery Service Partner courier work.","publisher":{"@id":"https://drdsp.ai/#org"}},
+{"@type":"Organization","@id":"https://drdsp.ai/#org","name":"Dr. DSP","url":"https://drdsp.ai/","description":"A managed Amazon DSP (Demand-Side Platform) advertising service, an Orbit product operated by the Full Circle group.","parentOrganization":{"@type":"Organization","name":"Full Circle","url":"https://fullcircleagency.com"}},
+{"@type":"Service","name":"Dr. DSP — managed Amazon DSP","serviceType":"Amazon Demand-Side Platform advertising management","provider":{"@id":"https://drdsp.ai/#org"},"areaServed":"US","description":"Audience strategy, retargeting, and new-to-brand acquisition on Amazon DSP, with incrementality reconciled in Amazon Marketing Cloud. Three approval levels, changeable at any time. Orbit software suite included."},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is Amazon DSP the same as being an Amazon delivery driver?","acceptedAnswer":{"@type":"Answer","text":"No. Amazon uses the initials DSP for two completely unrelated things. Amazon DSP in advertising means Demand-Side Platform — programmatic display, video and audio ads that Amazon serves on its own properties and across the open web. Amazon DSP in logistics means Delivery Service Partner, the courier franchise programme for delivery vans and drivers. This page is entirely about the advertising one. If you are looking for driving work, this is the wrong page."}},
+{"@type":"Question","name":"How do you know Amazon DSP actually added anything?","acceptedAnswer":{"@type":"Answer","text":"Honestly: last-click attribution cannot prove incrementality and never could. It only tells you which touch happened last. What can answer the question is a holdout — withholding DSP from a matched region or ASIN set and comparing against a control — and reconciliation in Amazon Marketing Cloud, where DSP and sponsored ads stop double-counting each other. We agree the measurement method with you before we agree the budget."}},
+{"@type":"Question","name":"What does Dr. DSP cost?","acceptedAnswer":{"@type":"Answer","text":"Pricing is discussed on the demo call, because DSP engagements vary by media budget, market coverage and how much of the account we are asked to run. The first 30 days are free. We will not quote you a number on a web page that we would then have to renegotiate on the call."}},
+{"@type":"Question","name":"When is Amazon DSP not the right spend for a brand?","acceptedAnswer":{"@type":"Answer","text":"When sponsored ads on the same catalogue still have unspent profitable headroom, when the listings the traffic would land on are not converting yet, when there is not enough inventory cover to absorb demand, or when the media budget is too small to buy statistically meaningful reach. In those cases DSP is not the highest-leverage thing to buy and we will say so on the call."}},
+{"@type":"Question","name":"Is the Orbit software suite really included?","acceptedAnswer":{"@type":"Answer","text":"Yes. Orbit — sales, advertising, search terms, keywords, traffic, inventory, finance, ASIN-level profit and the BSR, buy box, price and fee trackers — is included with Dr. DSP at no additional charge, the same as it is with Dr. PPC. There is no separate software line on the invoice."}}
+]}]}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FK1FG3TXLJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-FK1FG3TXLJ');
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('a[data-cta]').forEach(function(el){
+      el.addEventListener('click', function(){ gtag('event','book_demo_click',{location: el.dataset.cta}); });
+    });
+    var v=document.querySelector('video');
+    if(v){ var p=v.play(); if(p&&p.catch){p.catch(function(){});}
+      document.addEventListener('click',function once(){v.play().catch(function(){});document.removeEventListener('click',once);}); }
+    /* console mock tabs — presentational only */
+    document.querySelectorAll('[data-tab]').forEach(function(t){
+      t.addEventListener('click', function(){
+        var root = t.closest('.console');
+        root.querySelectorAll('[data-tab]').forEach(function(x){x.classList.remove('on');});
+        t.classList.add('on');
+        root.querySelectorAll('[data-pane]').forEach(function(p){
+          p.hidden = (p.dataset.pane !== t.dataset.tab);
+        });
+      });
+    });
+  });
+</script>
+<style>
+:root{
+  --base:#08060f; --raised:#0e0b1a; --fg:#f4f4f6; --dim:#9a97a8; --line:#221e33;
+  --accent:#00ff9d; --cyan:#00e5ff; --amber:#f59e0b; --rose:#f4718b;
+  /* tokens consumed by engagement.css so the injected CTAs render dark, not white */
+  --card:#0e0b1a; --ink:#f4f4f6; --soft:#171327; --accent-fg:#06231a;
+  --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--base);color:var(--fg);font-family:var(--body);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;}
+.narrow{max-width:780px;}
+a{color:var(--accent);}
+img{max-width:100%;}
+.kicker{font-family:var(--mono);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;line-height:1.08;margin:0;}
+h1{font-size:clamp(32px,5.4vw,62px);font-weight:800;}
+h2{font-size:clamp(25px,3.7vw,40px);font-weight:700;}
+h3{font-size:18px;font-weight:700;}
+p{margin:.6em 0;} .dim{color:var(--dim);} .mono{font-family:var(--mono);}
+strong.hi{color:var(--fg);}
+
+nav.top{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);background:rgba(8,6,15,.88);backdrop-filter:blur(10px);}
+nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 22px;}
+.logo{font-family:var(--display);font-weight:800;font-size:18px;letter-spacing:-.02em;}
+.logo span{color:var(--accent);}
+.logo em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);display:block;margin-top:1px;}
+.navcta{font-family:var(--mono);font-size:12.5px;font-weight:700;background:var(--accent);color:var(--base);padding:9px 16px;border-radius:7px;text-decoration:none;white-space:nowrap;}
+
+/* HERO with video */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line);}
+.grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(244,244,246,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(244,244,246,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 100%);mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 100%);}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:64px 22px 68px;}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:34px;padding-top:44px;}}
+.free-pill{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(0,255,157,.35);background:rgba(0,255,157,.06);padding:6px 14px;border-radius:100px;margin-bottom:22px;}
+.lede{font-size:18.5px;color:var(--dim);max-width:54ch;margin-top:20px;}
+.btn{display:inline-block;background:var(--accent);color:var(--base);font-weight:800;font-size:16.5px;padding:15px 30px;border-radius:9px;text-decoration:none;transition:filter .15s;}
+.btn:hover{filter:brightness(1.12);}
+.btn-sub{display:block;margin-top:12px;font-family:var(--mono);font-size:12.5px;color:var(--dim);}
+.doc-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5);}
+.doc-frame video{display:block;width:100%;height:auto;}
+.doc-badge{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(8,6,15,.82);backdrop-filter:blur(8px);border:1px solid rgba(0,255,157,.25);border-radius:11px;padding:12px 14px;}
+.doc-badge .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.doc-badge .t{font-family:var(--display);font-weight:700;font-size:15.5px;margin-top:3px;}
+.doc-badge .s{font-size:12px;color:var(--dim);margin-top:2px;}
+.live-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin-right:6px;animation:pulse 1.8s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+.disambig{border:1px solid var(--line);border-left:3px solid var(--cyan);background:var(--raised);border-radius:0 11px 11px 0;padding:15px 18px;margin-top:26px;max-width:56ch;}
+.disambig .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);}
+.disambig p{font-size:14px;color:var(--dim);margin:7px 0 0;}
+
+.ticker{border-bottom:1px solid var(--line);background:rgba(14,11,26,.6);overflow:hidden;padding:13px 0;}
+.tick-track{display:flex;white-space:nowrap;animation:tick 46s linear infinite;}
+@keyframes tick{to{transform:translateX(-50%);}}
+.tick-track span{font-family:var(--mono);font-size:12.5px;color:var(--dim);padding:0 26px;}
+.tick-track span b{color:var(--fg);font-weight:500;}
+@media(prefers-reduced-motion:reduce){.tick-track{animation:none;}}
+
+section{padding:80px 0;border-bottom:1px solid var(--line);}
+.section-head{max-width:680px;margin-bottom:40px;}
+.section-head h2{margin-top:12px;}
+.section-head p{margin-top:14px;color:var(--dim);font-size:16.5px;}
+
+.brands{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:26px;}
+.brand{background:var(--raised);border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center;}
+.brand .nm{font-family:var(--display);font-weight:700;font-size:16px;}
+.brand .cat{font-family:var(--mono);font-size:10.5px;color:var(--dim);margin-top:5px;letter-spacing:.06em;}
+
+.scale{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));}
+.sc{background:var(--raised);border:1px solid var(--line);border-radius:13px;padding:24px;}
+.sc .big{font-family:var(--display);font-size:36px;font-weight:800;color:var(--accent);letter-spacing:-.03em;line-height:1;}
+.sc .lbl{font-size:14px;color:var(--dim);margin-top:10px;}
+
+.stack{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));}
+.step{background:var(--raised);border:1px solid var(--line);border-radius:13px;padding:22px;}
+.step .n{font-family:var(--mono);font-size:11.5px;color:var(--accent);letter-spacing:.16em;}
+.step h3{margin:9px 0 7px;font-size:17px;}
+.step .d{font-size:14.5px;color:var(--dim);}
+
+.watch{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));margin-top:8px;}
+.w{border:1px solid var(--line);border-left:3px solid var(--cyan);border-radius:0 11px 11px 0;padding:16px 18px;background:var(--raised);}
+.w h3{font-size:14.5px;font-family:var(--body);font-weight:600;}
+.w .d{font-size:13.5px;color:var(--dim);margin:5px 0 0;}
+
+.ladder{display:grid;gap:16px;grid-template-columns:1fr 1fr;}
+@media(max-width:720px){.ladder{grid-template-columns:1fr;}}
+.lcol{border:1px solid var(--line);border-radius:13px;padding:26px;background:var(--raised);}
+.lcol.auto{border-color:rgba(0,255,157,.3);}
+.lcol h3{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;}
+.lcol.auto h3{color:var(--accent);} .lcol.human h3{color:var(--amber);}
+.lcol ul{margin:16px 0 0;padding:0;list-style:none;}
+.lcol li{font-size:14.7px;padding:9px 0 9px 24px;position:relative;border-bottom:1px solid rgba(34,30,51,.6);}
+.lcol li:last-child{border-bottom:none;}
+.lcol li::before{content:"\203A";position:absolute;left:4px;font-family:var(--mono);color:var(--accent);}
+.lcol.human li::before{content:"\2318";color:var(--amber);font-size:11px;top:11px;}
+
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:13px;background:var(--raised);}
+table{width:100%;border-collapse:collapse;font-size:15px;}
+th,td{padding:15px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:500;}
+thead th.us{color:var(--accent);}
+td.us{background:rgba(0,255,157,.045);font-weight:500;}
+td:first-child{color:var(--dim);font-family:var(--mono);font-size:12.5px;}
+tbody tr:last-child td{border-bottom:none;}
+
+/* ---------- the numbers ---------- */
+.figs{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));}
+.fig{border:1px solid var(--line);border-radius:13px;background:var(--raised);padding:22px;}
+.fig .v{font-family:var(--display);font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--cyan);}
+.fig .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:11px;}
+.fig .s{font-size:13.2px;color:var(--dim);margin-top:7px;}
+.fig.lead .v{color:var(--accent);font-size:42px;}
+.scope{border:1px solid rgba(0,229,255,.28);background:linear-gradient(180deg,rgba(0,229,255,.05),rgba(14,11,26,.9));border-radius:14px;padding:24px 26px;margin-top:24px;}
+.scope h3{font-size:18px;margin-bottom:8px;}
+.scope .d{color:var(--dim);font-size:14.6px;margin:0 0 10px;max-width:78ch;}
+.scope .d:last-child{margin-bottom:0;}
+
+/* ---------- console recreation ---------- */
+.console{border:1px solid var(--line);border-radius:15px;overflow:hidden;background:var(--raised);box-shadow:0 26px 70px rgba(0,0,0,.45);}
+.console-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:12px 16px;border-bottom:1px solid var(--line);background:rgba(8,6,15,.6);}
+.dots{display:flex;gap:6px;}
+.dots i{width:9px;height:9px;border-radius:50%;background:#332e47;display:block;}
+.crumb{font-family:var(--mono);font-size:11.5px;color:var(--dim);}
+.crumb b{color:var(--fg);font-weight:500;}
+.badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.08);padding:5px 11px;border-radius:100px;white-space:nowrap;}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0;}
+.tabs button{font-family:var(--mono);font-size:12px;color:var(--dim);background:transparent;border:1px solid var(--line);border-radius:8px 8px 0 0;border-bottom:none;padding:9px 15px;cursor:pointer;}
+.tabs button.on{color:var(--accent);background:rgba(0,255,157,.06);border-color:rgba(0,255,157,.3);}
+.pane{padding:22px 16px 24px;border-top:1px solid var(--line);margin-top:-1px;}
+.update{border-left:2px solid var(--accent);padding:2px 0 2px 18px;max-width:74ch;}
+.update .stamp{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
+.update .d{font-size:15px;color:#cfccdb;margin:11px 0;}
+.update .d strong{color:var(--fg);}
+.props{display:grid;gap:14px;}
+.prop{border:1px solid var(--line);border-radius:12px;background:rgba(8,6,15,.55);padding:18px;}
+.prop-top{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:11px;}
+.tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:5px;border:1px solid var(--line);color:var(--dim);}
+.tag.act{color:var(--cyan);border-color:rgba(0,229,255,.32);background:rgba(0,229,255,.06);}
+.tag.wait{color:var(--amber);border-color:rgba(245,158,11,.32);background:rgba(245,158,11,.07);}
+.tag.done{color:var(--accent);border-color:rgba(0,255,157,.32);background:rgba(0,255,157,.07);}
+.prop h4{font-family:var(--display);font-size:17px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em;line-height:1.3;}
+.prop h4 code{font-family:var(--mono);font-size:15px;color:var(--accent);background:rgba(0,255,157,.08);padding:1px 6px;border-radius:5px;}
+.rows{display:grid;gap:9px;margin:0 0 16px;}
+.row{display:grid;grid-template-columns:118px 1fr;gap:14px;font-size:14px;align-items:start;}
+@media(max-width:560px){.row{grid-template-columns:1fr;gap:2px;}}
+.row dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);padding-top:4px;}
+.row dd{margin:0;color:#cfccdb;}
+.row dd b{color:var(--fg);font-weight:600;}
+.row.rb dt{color:var(--rose);}
+.actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:15px;}
+.approve,.reject{font-family:var(--mono);font-size:12.5px;font-weight:700;border-radius:7px;padding:10px 16px;border:1px solid;cursor:default;}
+.approve{background:var(--accent);color:var(--base);border-color:var(--accent);}
+.reject{background:transparent;color:var(--dim);border-color:var(--line);}
+.mock-note{font-family:var(--mono);font-size:11px;color:#6d6a7c;margin-left:auto;align-self:center;}
+.shot-cap{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;margin-top:11px;letter-spacing:.03em;}
+
+/* ---------- approval levels ---------- */
+.levels{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);}
+@media(max-width:900px){.levels{grid-template-columns:1fr;}}
+.lev{border:1px solid var(--line);border-radius:14px;background:var(--raised);padding:26px;display:flex;flex-direction:column;}
+.lev.l1{border-top:3px solid var(--amber);}
+.lev.l2{border-top:3px solid var(--cyan);}
+.lev.l3{border-top:3px solid var(--accent);}
+.lev .lv{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--dim);}
+.lev.l1 .lv{color:var(--amber);} .lev.l2 .lv{color:var(--cyan);} .lev.l3 .lv{color:var(--accent);}
+.lev h3{margin:10px 0 10px;font-size:20px;}
+.lev>.d{font-size:14.6px;color:var(--dim);margin:0 0 16px;}
+.lev ul{margin:0;padding:0;list-style:none;}
+.lev li{font-size:14px;color:#cfccdb;padding:7px 0 7px 20px;position:relative;}
+.lev li::before{content:"\203A";position:absolute;left:2px;font-family:var(--mono);color:var(--dim);}
+.lev .foot{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);font-size:13.4px;color:var(--dim);}
+.lev .foot b{color:var(--fg);font-weight:600;display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;margin-bottom:5px;}
+.constant{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:22px;}
+.const{border:1px solid var(--line);border-radius:11px;background:rgba(14,11,26,.55);padding:17px 19px;}
+.const h4{font-family:var(--body);font-size:14.5px;font-weight:600;margin:0 0 5px;}
+.const .d{font-size:13.4px;color:var(--dim);}
+
+/* ---------- orbit ---------- */
+.orbit-grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:26px;}
+.mod{border:1px solid var(--line);border-radius:12px;background:var(--raised);padding:20px;}
+.mod .g{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
+.mod ul{margin:12px 0 0;padding:0;list-style:none;}
+.mod li{font-size:14.2px;color:#cfccdb;padding:6px 0;border-bottom:1px solid rgba(34,30,51,.55);}
+.mod li:last-child{border-bottom:none;}
+.mod li span{color:var(--dim);font-size:12.8px;display:block;}
+.free-band{border:1px solid rgba(0,255,157,.28);background:linear-gradient(180deg,rgba(0,255,157,.06),rgba(14,11,26,.9));border-radius:14px;padding:26px 28px;margin-top:28px;}
+.free-band h3{font-size:21px;margin-bottom:8px;}
+.free-band .d{color:var(--dim);font-size:15px;margin:0;max-width:72ch;}
+
+.price-card{border:1px solid rgba(0,255,157,.28);border-radius:16px;background:linear-gradient(180deg,rgba(0,255,157,.05),rgba(14,11,26,.9));padding:40px;text-align:center;max-width:640px;margin:0 auto;}
+@media(max-width:520px){.price-card{padding:28px 20px;}}
+.price-num{font-family:var(--display);font-size:clamp(30px,5.2vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;}
+.price-num small{font-size:18px;color:var(--dim);font-weight:600;display:block;margin-top:10px;letter-spacing:0;}
+.price-terms{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:22px 0 6px;}
+.price-terms span{font-family:var(--mono);font-size:11.5px;color:var(--dim);border:1px solid var(--line);padding:6px 12px;border-radius:100px;}
+.incl{text-align:left;max-width:470px;margin:26px auto 0;padding:0;}
+.incl li{list-style:none;font-size:14.8px;padding:8px 0 8px 26px;position:relative;}
+.incl li::before{content:"\2713";position:absolute;left:0;color:var(--accent);font-weight:700;}
+
+.faq details{border-bottom:1px solid var(--line);padding:19px 0;}
+.faq summary{cursor:pointer;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:19px;}
+.faq details[open] summary::after{content:"\2013";}
+.faq .d{color:var(--dim);font-size:15.4px;margin:13px 0 0;max-width:70ch;}
+
+/* ---------- family ---------- */
+.family{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));margin-top:26px;}
+.fam{border:1px solid var(--line);border-radius:12px;background:var(--raised);padding:20px 22px;text-decoration:none;color:inherit;display:block;transition:border-color .15s,transform .15s;}
+.fam:hover{border-color:rgba(0,255,157,.35);transform:translateY(-2px);}
+.fam .nm{font-family:var(--display);font-weight:700;font-size:17px;}
+.fam .url{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em;margin-top:3px;}
+.fam .why{font-size:13.8px;color:var(--dim);margin-top:9px;line-height:1.6;}
+
+footer{padding:40px 0 60px;}
+footer .fine{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;max-width:68ch;line-height:1.7;}
+.cta-final{text-align:center;}
+.cta-final .lede{margin-left:auto;margin-right:auto;}
+</style>
+</head>
+<body>
+
+<nav class="top"><div class="wrap">
+  <div class="logo">Dr. <span>DSP</span><em>Demand-Side Platform</em></div>
+  <a class="navcta" href="#demo" data-cta="nav">Book a demo →</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <div>
+      <span class="free-pill">First 30 days free</span>
+      <h1>Meet Dr. DSP.<br />Fable&nbsp;5 runs your<br />Amazon DSP.</h1>
+      <p class="lede">Demand-Side Platform — Amazon's programmatic display, video and audio advertising, on Amazon and across the open web. <strong class="hi">Not Delivery Service Partner</strong>, the courier franchise; there are no driving jobs on this page. Dr. DSP is an autonomous Amazon DSP system, powered by Fable 5 and operated by a team with <strong class="hi">$500M+</strong> in managed Amazon spend across <strong class="hi">100+ brands</strong>.</p>
+      <div style="margin-top:32px">
+        <a class="btn" href="#demo" data-cta="hero">Book a demo call →</a>
+        <span class="btn-sub">30 minutes. First 30 days free. No contract.</span>
+      </div>
+      <div class="disambig">
+        <div class="n">Two things share the initials</div>
+        <p><b style="color:var(--fg);font-weight:600">DSP in advertising</b> = Demand-Side Platform: buying programmatic ad inventory. <b style="color:var(--fg);font-weight:600">DSP in logistics</b> = Delivery Service Partner: Amazon's delivery-van franchise. This site is entirely the first one.</p>
+      </div>
+    </div>
+    <div class="doc-frame">
+      <video src="assets/drdsp.mp4" poster="assets/drdsp-poster.jpg" autoplay loop muted playsinline preload="metadata" aria-label="Dr. DSP"></video>
+      <div class="doc-badge">
+        <div class="n"><span class="live-dot"></span>On duty · 24/7/365</div>
+        <div class="t">Dr. DSP</div>
+        <div class="s">Amazon Demand-Side Platform advertising, bought daily and measured where it can actually be proven.</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="tick-track">
+  <span><b>109</b> live Amazon DSP advertiser seats ·</span><span><b>6.04x</b> ROAS across 30 advertisers, July 2026 ·</span><span><b>78.4M</b> impressions ·</span><span><b>$5.49</b> blended cost per acquisition ·</span><span><b>20.1%</b> new-to-brand ·</span><span><b>$500M+</b> Amazon spend managed ·</span><span><b>100+</b> brands ·</span><span><b>Orbit software included free</b> ·</span><span><b>Powered by Fable 5</b> ·</span>
+  <span><b>109</b> live Amazon DSP advertiser seats ·</span><span><b>6.04x</b> ROAS across 30 advertisers, July 2026 ·</span><span><b>78.4M</b> impressions ·</span><span><b>$5.49</b> blended cost per acquisition ·</span><span><b>20.1%</b> new-to-brand ·</span><span><b>$500M+</b> Amazon spend managed ·</span><span><b>100+</b> brands ·</span><span><b>Orbit software included free</b> ·</span><span><b>Powered by Fable 5</b> ·</span>
+</div></div>
+
+<main data-article>
+
+<!-- 01 WHERE HE TRAINED -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Where he trained / 01</p>
+      <h2>Dr. DSP did his residency on a real DSP book.</h2>
+      <p>Not a deck about programmatic. Full Circle and reMKTR run Amazon DSP as a daily job — <strong class="hi">109 live advertiser seats</strong> at the time of writing — inside a group that has managed more than <strong class="hi">half a billion dollars</strong> of Amazon spend. Every audience that worked, every supply source that quietly wasted money, and every campaign that should never have been switched on is what Dr. DSP learned from.</p>
+    </div>
+    <div class="scale">
+      <div class="sc"><div class="big">109</div><div class="lbl">live Amazon DSP advertiser seats we operate</div></div>
+      <div class="sc"><div class="big">$500M+</div><div class="lbl">Amazon spend managed across the group</div></div>
+      <div class="sc"><div class="big">100+</div><div class="lbl">brands we've worked with</div></div>
+      <div class="sc"><div class="big">10 yrs</div><div class="lbl">of accumulated category playbooks, feeding the model</div></div>
+    </div>
+    <p class="kicker" style="margin-top:44px">Brands the agency has worked with</p>
+    <div class="brands">
+      <div class="brand"><div class="nm">HexClad</div><div class="cat">Cookware</div></div>
+      <div class="brand"><div class="nm">Ridge</div><div class="cat">Accessories</div></div>
+      <div class="brand"><div class="nm">BK Beauty</div><div class="cat">Beauty</div></div>
+      <div class="brand"><div class="nm">Beardbrand</div><div class="cat">Grooming</div></div>
+      <div class="brand"><div class="nm">Epic Gardening</div><div class="cat">Home &amp; Garden</div></div>
+      <div class="brand"><div class="nm">The Woobles</div><div class="cat">Crafts</div></div>
+    </div>
+    <p class="dim" style="font-size:14.5px;margin-top:22px;max-width:74ch">These are brands the agency has worked with, named because they are public. <strong class="hi">We do not name DSP clients.</strong> Programmatic media plans, audience strategies and results belong to the brands paying for them, and a logo wall of advertisers who never agreed to be on it is not a credential — it's a leak. If that's the kind of proof you need, ask us on the call and we'll show you method and anonymised structure instead.</p>
+  </div>
+</section>
+
+<!-- 02 THE MEASUREMENT PROBLEM -->
+<section id="measurement">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The honest part / 02</p>
+      <h2>Last-click cannot prove incrementality. It never could.</h2>
+      <p>This is the thing the category will not say out loud, because saying it makes display harder to sell. A last-click report tells you which touch happened last. It does not tell you whether the sale would have happened anyway — and on Amazon, where the same shopper sees your display ad and then searches your brand name, it systematically hands the credit to whichever surface was standing closest to the checkout.</p>
+    </div>
+
+    <div class="ladder">
+      <div class="lcol human"><h3>What last-click can't answer</h3><ul>
+        <li>Would this customer have bought without ever seeing the display ad?</li>
+        <li>Is DSP creating demand, or re-buying demand your sponsored ads already had?</li>
+        <li>When DSP and sponsored ads both touched the sale, which one actually moved it?</li>
+        <li>Is your retargeting reaching people who were going to come back on their own?</li>
+        <li>What happened to shoppers who saw the ad, didn't click, and bought a week later?</li>
+      </ul></div>
+      <div class="lcol auto"><h3>What actually answers it</h3><ul>
+        <li><b style="color:var(--fg);font-weight:600">Holdouts.</b> Withhold DSP from a matched region or ASIN set and compare against the rest</li>
+        <li><b style="color:var(--fg);font-weight:600">Matched controls.</b> Comparable products and geographies, not last year's version of you</li>
+        <li><b style="color:var(--fg);font-weight:600">Amazon Marketing Cloud.</b> Where DSP and sponsored ads stop double-counting each other</li>
+        <li><b style="color:var(--fg);font-weight:600">Path-to-purchase analysis in AMC.</b> Which combinations of touches actually preceded orders</li>
+        <li><b style="color:var(--fg);font-weight:600">New-to-brand as a real metric,</b> not a nice number in a slide</li>
+      </ul></div>
+    </div>
+
+    <div class="scope" style="margin-top:26px">
+      <h3>Why Amazon Marketing Cloud is the honest room</h3>
+      <div class="d">AMC is Amazon's clean room. Your DSP impressions and your sponsored-ads events land in the same place, at event level, so you can ask the only question that matters: what did the combination do that either one alone did not? Outside AMC, DSP and sponsored ads each report the same order as their own win, and adding up the two reports produces a number larger than your actual business.</div>
+      <div class="d">We agree the measurement design with you <strong class="hi">before</strong> we agree the budget. If a holdout is going to be uncomfortable, it is better to find that out in week one than in month six — and if a brand does not want to run one, we will say plainly which claims we can and cannot make without it.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 THE NUMBERS -->
+<section id="numbers">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What the book did / 03</p>
+      <h2>Real numbers, scoped exactly as they were pulled.</h2>
+      <p>These come from a direct Amazon DSP API pull on <strong class="hi">20 August 2026</strong>, covering <strong class="hi">30 advertisers in July 2026</strong>. They are portfolio-wide across those 30 — not one flattering account picked out of the book, and not a projection.</p>
+    </div>
+    <div class="figs">
+      <div class="fig lead"><div class="v">6.04x</div><div class="k">Return on ad spend</div><div class="s">Blended across all 30 advertisers in the pull.</div></div>
+      <div class="fig"><div class="v">78.4M</div><div class="k">Impressions</div><div class="s">Delivered in the month.</div></div>
+      <div class="fig"><div class="v">$4.00</div><div class="k">CPM</div><div class="s">Blended cost per thousand impressions.</div></div>
+      <div class="fig"><div class="v">$1.42</div><div class="k">Cost per click</div><div class="s">Blended across the same 30 advertisers.</div></div>
+      <div class="fig"><div class="v">$5.49</div><div class="k">Cost per acquisition</div><div class="s">Blended, across attributed purchases.</div></div>
+      <div class="fig"><div class="v">57,137</div><div class="k">Attributed purchases</div><div class="s">In July 2026.</div></div>
+      <div class="fig"><div class="v">20.1%</div><div class="k">New-to-brand</div><div class="s">Share of those purchases from customers new to the brand.</div></div>
+      <div class="fig"><div class="v">109</div><div class="k">Live advertiser seats</div><div class="s">The full DSP book we operate today.</div></div>
+    </div>
+    <div class="scope">
+      <h3>Read this the way we'd want it read</h3>
+      <div class="d"><strong class="hi">Scope.</strong> Thirty advertisers, one month — July 2026. Not the entire book of 109 seats, and not a like-for-like promise about any single brand inside it. Different categories, budgets, creative and starting points produce different results, and some of the 30 will have done better than 6.04x while others did worse.</div>
+      <div class="d"><strong class="hi">Attribution.</strong> Those purchases are Amazon-attributed DSP conversions. That is the measurement layer everyone in this market quotes, and by the argument two sections up, it is exactly the layer that cannot prove incrementality on its own. It tells you the media delivered efficiently. It does not by itself tell you the business grew because of it — which is why we reconcile in AMC.</div>
+      <div class="d"><strong class="hi">No guarantee.</strong> Nothing here is a promise of what your account will do. It is evidence that we run this at scale, competently, and that we are willing to publish the arithmetic rather than a testimonial.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 HOW HE THINKS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">How he thinks / 04</p>
+      <h2>Fable 5, pointed at every audience you can buy.</h2>
+      <p>The model is the engine. A decade of Amazon account data and DSP playbooks is the fuel. Together they produce something a media planner with a spreadsheet cannot: a written, specific reason for every audience, every supply decision and every dollar of frequency — reviewed daily rather than at the next quarterly.</p>
+    </div>
+    <div class="stack">
+      <div class="step"><div class="n">01</div><h3>Read the whole funnel</h3><div class="d">Sponsored ads, DSP line items, audiences, supply, frequency and the catalogue underneath them — reconciled across a full attribution window, not a seven-day snapshot.</div></div>
+      <div class="step"><div class="n">02</div><h3>Decide whether DSP belongs</h3><div class="d">The first honest question is whether display is the right next dollar at all. If sponsored ads still have profitable headroom, or the listings aren't converting, he says so before anyone buys media.</div></div>
+      <div class="step"><div class="n">03</div><h3>Build the audience plan</h3><div class="d">Retargeting tiers, in-market and lifestyle segments, competitor conquesting, and a genuine prospecting layer aimed at customers who have never bought from you.</div></div>
+      <div class="step"><div class="n">04</div><h3>Propose or act</h3><div class="d">Bids, budgets, frequency caps, supply exclusions, creative rotation and pacing. Every day — either applied inside your guardrails or queued for your approval. You decide which.</div></div>
+      <div class="step"><div class="n">05</div><h3>Log every reason</h3><div class="d">Each change is written down with the evidence behind it. If Dr. DSP can't explain why he cut a supply source, he doesn't cut it.</div></div>
+      <div class="step"><div class="n">06</div><h3>Reconcile in AMC</h3><div class="d">Performance is checked where DSP and sponsored ads stop double-counting, on the measurement design agreed at the start — with rollback triggers on every change that fails its window.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 THE CONSOLE -->
+<section id="console">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The console / 05</p>
+      <h2>This is what he actually hands you.</h2>
+      <p>Not a media report. Not an impressions-delivered email. A written account update and a stack of specific proposals — each with the evidence behind it, how it will be measured, and the condition that automatically undoes it. In human-approval mode, nothing reaches the DSP until you click.</p>
+    </div>
+
+    <div class="console">
+      <div class="console-bar">
+        <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="crumb">Orbit · DSP · <b>Dr DSP™ Console</b></div>
+        <div class="badge">Human approval</div>
+      </div>
+      <div class="tabs" role="tablist">
+        <button type="button" data-tab="analysis">Analysis + proposals</button>
+        <button type="button" data-tab="activity" class="on">Activity + decisions</button>
+      </div>
+
+      <div class="pane" data-pane="analysis" hidden>
+        <div class="update">
+          <div class="stamp">Account update · week 33 · example account</div>
+          <div class="d"><strong>Your display is efficient and partly redundant, and those are two different problems.</strong> The retargeting line items are returning the best reported ROAS in the account — which is exactly what retargeting always does, because it buys impressions in front of people who were already coming back. The AMC path analysis says a large share of those orders also had a branded sponsored-ads touch within the same window.</div>
+          <div class="d">I want to <strong>shift budget out of the deepest retargeting tier and into the prospecting line item</strong>, and I want to prove it rather than assert it. Proposed design: a two-week geographic holdout on the retargeting tier, matched on baseline sales, read in AMC.</div>
+          <div class="d">Separately, a block of third-party supply is delivering impressions at low viewability and has produced no attributed orders in a full window. That is the cheapest money on the table and I'd like to cut it today.</div>
+          <div class="d"><strong>Three proposals are waiting for you. Nothing has been applied to the DSP.</strong></div>
+        </div>
+      </div>
+
+      <div class="pane" data-pane="activity">
+        <div class="props">
+
+          <div class="prop">
+            <div class="prop-top">
+              <span class="tag act">Frequency cap</span>
+              <span class="tag">Retargeting · tier 1</span>
+              <span class="tag wait">Awaiting approval</span>
+            </div>
+            <h4>Reduce frequency from <code>12</code> to <code>6</code> impressions per user per week</h4>
+            <dl class="rows">
+              <div class="row"><dt>Evidence</dt><dd>Beyond the sixth impression in a week, incremental attributed purchases per thousand impressions <b>flatten while cost keeps accruing</b>. The tail of that curve is the most expensive reach in the account.</dd></div>
+              <div class="row"><dt>Measurement</dt><dd>14 days. Success = attributed purchases held within 5% on materially lower spend, confirmed in AMC rather than the DSP report alone.</dd></div>
+              <div class="row rb"><dt>Rollback</dt><dd>If attributed purchases fall more than <b>10% within 7 days</b>, the cap returns to 12 automatically and the line item is re-queued for review.</dd></div>
+            </dl>
+            <div class="actions">
+              <span class="approve">Approve and apply to DSP</span>
+              <span class="reject">Reject</span>
+              <span class="mock-note">Level 1 · your click required</span>
+            </div>
+          </div>
+
+          <div class="prop">
+            <div class="prop-top">
+              <span class="tag act">Supply exclusion</span>
+              <span class="tag">Third-party inventory</span>
+              <span class="tag wait">Awaiting approval</span>
+            </div>
+            <h4>Exclude a block of low-viewability third-party supply</h4>
+            <dl class="rows">
+              <div class="row"><dt>Evidence</dt><dd>Impressions delivering <b>below the account's viewability floor with zero attributed orders</b> across a full attribution window. Same pattern across three line items.</dd></div>
+              <div class="row"><dt>Measurement</dt><dd>Expect delivered impressions to drop and effective CPM to rise, with attributed purchases flat — that trade is the point.</dd></div>
+              <div class="row rb"><dt>Rollback</dt><dd>Reversed if total attributed purchases fall more than <b>8% in 14 days</b>, which would mean the supply was doing something the reporting didn't show.</dd></div>
+            </dl>
+            <div class="actions">
+              <span class="approve">Approve and apply to DSP</span>
+              <span class="reject">Reject</span>
+              <span class="mock-note">Level 2 · would auto-apply</span>
+            </div>
+          </div>
+
+          <div class="prop">
+            <div class="prop-top">
+              <span class="tag act">Budget shift</span>
+              <span class="tag">Line item scope</span>
+              <span class="tag done">Applied · logged</span>
+            </div>
+            <h4>Move budget from the deepest retargeting tier into <code>new-to-brand prospecting</code></h4>
+            <dl class="rows">
+              <div class="row"><dt>Evidence</dt><dd>The source tier's reported ROAS is the highest in the account and its <b>new-to-brand share is close to zero</b> — it is buying customers you already had. Prospecting was pacing out before end of day.</dd></div>
+              <div class="row"><dt>Measurement</dt><dd>28 days, read in AMC. Success = new-to-brand purchases up with total contribution profit flat or better. Reported blended ROAS is expected to fall, and that is an acceptable outcome here.</dd></div>
+              <div class="row rb"><dt>Rollback</dt><dd>Budget returns to the original split if total attributed purchases fall more than <b>12% for 5 consecutive days</b>.</dd></div>
+            </dl>
+            <div class="actions">
+              <span class="reject" style="border-color:rgba(0,255,157,.3);color:var(--accent)">View in change log</span>
+              <span class="mock-note">Level 3 · applied inside guardrails, logged</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <p class="shot-cap">Dr DSP™ Console — representative view. The figures inside this illustration are examples, not a client account.</p>
+  </div>
+</section>
+
+<!-- 06 APPROVAL LEVELS -->
+<section id="approval">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Your call / 06</p>
+      <h2>You choose how much he does on his own.</h2>
+      <p>"Autonomous" is not one setting, and it should never be the vendor's decision — least of all when real media budget is moving every day. Dr. DSP runs at whichever of these three levels you pick, and you can change it at any time, per account, without renegotiating anything. Some brands sit at Level 1 for a quarter, read the log, and move up. Some never do. Both are fine.</p>
+    </div>
+
+    <div class="levels">
+      <div class="lev l1">
+        <div class="lv">Level 01</div>
+        <h3>Full human approval</h3>
+        <div class="d">Dr. DSP does all the analysis and proposes every change. Nothing touches the DSP without a human clicking approve.</div>
+        <ul>
+          <li>Every bid, budget, audience, frequency and supply change arrives as a proposal card</li>
+          <li>Each card carries the evidence, the measurement plan and the rollback trigger</li>
+          <li>Approve, reject, or approve in bulk — one click each</li>
+          <li>Rejections feed back into the strategy, so he stops proposing what you keep refusing</li>
+        </ul>
+        <div class="foot"><b>The frequency cap above</b>Sits in the queue until you click "Approve and apply to DSP".</div>
+      </div>
+
+      <div class="lev l2">
+        <div class="lv">Level 02</div>
+        <h3>Supervised autonomy</h3>
+        <div class="d">Routine, low-risk work executes on its own inside guardrails you set. Anything above your threshold queues for approval.</div>
+        <ul>
+          <li>Auto-applies: supply exclusions on non-performing inventory, bid steps inside your band, pacing corrections</li>
+          <li>Queues for you: anything above the threshold, new audiences, new line items, creative changes</li>
+          <li>You set the band — for example, bid moves up to 10% and budget shifts up to an agreed daily ceiling</li>
+          <li>Daily digest of what ran automatically, with the same evidence attached</li>
+        </ul>
+        <div class="foot"><b>The supply exclusion above</b>Inside the agreed band — applied automatically, logged, still reversible.</div>
+      </div>
+
+      <div class="lev l3">
+        <div class="lv">Level 03</div>
+        <h3>Fully autonomous</h3>
+        <div class="d">Dr. DSP runs the DSP account inside agreed guardrails. You review the log and the outcomes rather than each decision.</div>
+        <ul>
+          <li>Every change is still written down with its reasoning and its evidence</li>
+          <li>Every change still carries a measurement window and a rollback trigger</li>
+          <li>Guardrails are yours: spend ceilings, target efficiency, protected audiences, untouchable campaigns</li>
+          <li>Weekly written account update; drop back to Level 1 at any moment</li>
+        </ul>
+        <div class="foot"><b>The budget shift above</b>Applied at 6am, measured for 28 days in AMC, auto-reverted if purchases fall 12%.</div>
+      </div>
+    </div>
+
+    <p class="kicker" style="margin-top:46px">What does not change between levels</p>
+    <div class="constant">
+      <div class="const"><h4>The same evidence trail</h4><div class="d">Level 3 is not a quieter product. Every change produces the identical written record — you're choosing whether to read it before or after.</div></div>
+      <div class="const"><h4>The same rollback triggers</h4><div class="d">Nothing is applied without a condition that undoes it. Autonomy raises the speed, not the risk tolerance.</div></div>
+      <div class="const"><h4>The same measurement design</h4><div class="d">The holdout and the AMC reconciliation are agreed up front and run the same way at every level.</div></div>
+      <div class="const"><h4>The same hard limits</h4><div class="d">The right-hand column two sections down is off-limits at every level, including Level 3. Full autonomy does not mean unlimited authority.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 WHAT HE WATCHES -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">What he watches / 07</p>
+      <h2>Awareness a media planner doesn't have on their best day.</h2>
+      <p>A human planner watches a handful of these, on the accounts they have time for, and reads the numbers weekly. Dr. DSP watches all of them, on every line item, every day.</p>
+    </div>
+    <div class="watch">
+      <div class="w"><h3>Audience performance</h3><div class="d">Retargeting tiers, in-market, lifestyle and custom-built segments, judged on incremental contribution rather than reported ROAS alone.</div></div>
+      <div class="w"><h3>New-to-brand share</h3><div class="d">Whether you're buying growth or re-buying customers you already had — the number that decides if display is worth it.</div></div>
+      <div class="w"><h3>Frequency &amp; fatigue</h3><div class="d">Where the marginal impression stops earning its keep, by audience and by creative.</div></div>
+      <div class="w"><h3>Supply quality</h3><div class="d">Viewability, placement and inventory sources that deliver impressions without ever delivering outcomes.</div></div>
+      <div class="w"><h3>Pacing &amp; delivery</h3><div class="d">Flights that will underspend, and flights burning the month's budget by the ninth.</div></div>
+      <div class="w"><h3>Overlap with sponsored ads</h3><div class="d">Where DSP and search are paying twice for the same shopper, reconciled in Amazon Marketing Cloud.</div></div>
+      <div class="w"><h3>Creative rotation</h3><div class="d">Which sizes, formats and messages hold attention, and which are quietly dragging the average down.</div></div>
+      <div class="w"><h3>Downstream readiness</h3><div class="d">Stockouts, buy-box loss and suppressed listings — spend paused the moment expensive traffic points at a dead page.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 AUTONOMY LADDER -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Honesty / 08</p>
+      <h2>What he does alone — and what he never does.</h2>
+      <p>Everyone in this category says "autonomous" and nobody defines it. So here's ours, in public. The right-hand column applies at <strong class="hi">every</strong> approval level, including Level 3 — these are not permissions you can switch on.</p>
+    </div>
+    <div class="ladder">
+      <div class="lcol auto"><h3>Runs unattended</h3><ul>
+        <li>Adjusts bids toward the agreed efficiency goal, within guardrails</li>
+        <li>Tunes frequency caps where the marginal impression has stopped converting</li>
+        <li>Excludes supply that delivers impressions and no outcomes</li>
+        <li>Rebalances budget between existing line items and fixes pacing</li>
+        <li>Rotates existing creative against measured fatigue</li>
+        <li>Pauses spend when listings go out of stock, lose the buy box, or get suppressed</li>
+        <li>Expands and contracts existing audience tiers inside the agreed structure</li>
+      </ul></div>
+      <div class="lcol human"><h3>Always needs a human</h3><ul>
+        <li>Anything touching inventory risk — he doesn't know your container is late</li>
+        <li>Total budget increases and any new flight or market</li>
+        <li>New creative, new messaging, and anything a brand team must sign off</li>
+        <li>Launching a new product or entering a new category</li>
+        <li>Pricing and promotion decisions</li>
+        <li>Building audiences from newly supplied first-party data</li>
+        <li>Deciding what "worth it" means for your business</li>
+        <li>Telling you to stop spending on DSP entirely</li>
+      </ul></div>
+    </div>
+
+    <div class="scope" style="margin-top:26px">
+      <h3>When DSP is genuinely the wrong spend</h3>
+      <div class="d">Display is not a default. There are four situations where we will tell you not to buy it — and the demo call is where we look for them, not month three.</div>
+      <div class="d"><strong class="hi">Your sponsored ads still have profitable headroom.</strong> If there is unspent, converting demand on search, that dollar is worth more there. Display's job is to create demand, not to jump a queue that already exists.</div>
+      <div class="d"><strong class="hi">The listings aren't ready.</strong> Buying expensive top-of-funnel traffic to pages that don't convert is a way to fund Amazon, not your growth. Fix the page first.</div>
+      <div class="d"><strong class="hi">Inventory can't absorb it.</strong> Generating demand you can't fulfil damages rank and burns the budget twice.</div>
+      <div class="d"><strong class="hi">The budget is too small to read.</strong> Below a certain spend, results are noise and no holdout will ever reach significance. You'd be paying for a measurement you can't act on.</div>
+    </div>
+    <p class="mono dim" style="font-size:12.5px;margin-top:20px;max-width:70ch">If a DSP vendor won't tell you when their product is the wrong purchase, ask them why.</p>
+  </div>
+</section>
+
+<!-- 09 ORBIT INCLUDED -->
+<section id="orbit">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">Orbit, included / 09</p>
+      <h2>The whole software suite comes with him. Free.</h2>
+      <p>Dr. DSP lives inside <strong class="hi">Orbit</strong> — Full Circle's full Amazon software suite. Sales, advertising, search terms, keywords, traffic, inventory, finance, ASIN-level profit, and a set of trackers that watch your BSR, buy box, price and fee changes for you. This is software other companies charge a monthly subscription for. With Dr. DSP it is included at no extra cost, exactly as it is with Dr. PPC.</p>
+    </div>
+
+    <div class="orbit-grid">
+      <div class="mod">
+        <div class="g">Sales &amp; analytics</div>
+        <ul>
+          <li>Sales<span>Revenue, units and trend by marketplace</span></li>
+          <li>Keywords<span>Rank tracking by term, paid versus organic</span></li>
+          <li>Traffic<span>Sessions, conversion and where they came from</span></li>
+          <li>Inventory<span>Cover, velocity and stockout risk</span></li>
+          <li>Finance<span>Fees, reimbursements and contribution profit</span></li>
+          <li>ASINs<span>Per-product economics down to the SKU</span></li>
+        </ul>
+      </div>
+      <div class="mod">
+        <div class="g">Advertising &amp; DSP</div>
+        <ul>
+          <li>PPC Analytics<span>Spend, sales, ACoS, TACoS, RoAS and the hourly day trail</span></li>
+          <li>Search Terms<span>Every term with an opportunity score and true profit</span></li>
+          <li>Campaign Analytics<span>Match type, campaign type and the profitability map</span></li>
+          <li>Live Tracker<span>Today's spend as it happens, hour by hour</span></li>
+          <li>Dr DSP™ Console<span>The analysis, the proposals and the decision log</span></li>
+        </ul>
+      </div>
+      <div class="mod">
+        <div class="g">Trackers &amp; alerts</div>
+        <ul>
+          <li>BSR Tracker<span>Best-seller rank movement by ASIN</span></li>
+          <li>BuyBox Tracker<span>Ownership and loss events</span></li>
+          <li>Price Tracker<span>Yours and the competition's</span></li>
+          <li>Fee Tracker<span>Amazon fee changes before they surprise you</span></li>
+          <li>Alerts &amp; notifications<span>Suppressions, stockouts and spend anomalies</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="free-band">
+      <h3>Included, not upsold.</h3>
+      <div class="d">Orbit comes with Dr. DSP at no additional charge — no separate software line on the invoice, no per-seat pricing, and no tier you have to upgrade into to see your own profit numbers. You keep access to every module listed above for as long as Dr. DSP is on the account.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 THE THIRD CATEGORY -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The third category / 10</p>
+      <h2>You've had two bad options. This is the third.</h2>
+      <p>A self-serve DSP seat hands you a media-buying console and wishes you luck. A traditional agency hands you a planner, a monthly report and a retainer. Dr. DSP is the thing in between that nobody was selling — the work done daily, with the reasoning written down and the measurement designed to survive scrutiny.</p>
+    </div>
+    <div class="tablewrap"><table>
+      <thead><tr><th></th><th>Self-serve DSP seat</th><th>Traditional agency</th><th class="us">Dr. DSP</th></tr></thead>
+      <tbody>
+        <tr><td>Who does the work</td><td>You do</td><td>A planner, some of the time</td><td class="us">Fable 5, every day</td></tr>
+        <tr><td>Account touched</td><td>When you log in</td><td>Weekly at best</td><td class="us">Daily, every line item</td></tr>
+        <tr><td>Who approves changes</td><td>You, manually</td><td>Them, told to you later</td><td class="us">Your choice of three levels</td></tr>
+        <tr><td>Reason for each change</td><td>Whatever you remember</td><td>Ask on the next call</td><td class="us">Written, with evidence</td></tr>
+        <tr><td>How performance is proven</td><td>Platform-reported ROAS</td><td>Platform-reported ROAS</td><td class="us">Holdout + AMC reconciliation</td></tr>
+        <tr><td>Retainers</td><td>n/a</td><td>Usually, on a fixed term</td><td class="us">No retainers</td></tr>
+        <tr><td>Told when not to buy DSP</td><td>Never — you bought the seat</td><td>Rarely — it's the revenue line</td><td class="us">In writing, section 08</td></tr>
+        <tr><td>Human expertise</td><td>None included</td><td>Varies with who's assigned</td><td class="us">Operators from a $500M+ team</td></tr>
+        <tr><td>Commitment</td><td>Platform minimums</td><td>6–12 month contract</td><td class="us">Month-to-month</td></tr>
+        <tr><td>Software included</td><td>It is the software</td><td>Billed separately</td><td class="us">Full Orbit suite, free</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<!-- 11 THE OFFER -->
+<section id="pricing">
+  <div class="wrap">
+    <div class="section-head" style="text-align:center;margin:0 auto 40px">
+      <p class="kicker">The offer / 11</p>
+      <h2>Thirty days free. Then a real conversation.</h2>
+    </div>
+    <div class="price-card">
+      <div class="price-num">First 30 days free<small>Pricing is set on the call, against your actual media budget and scope.</small></div>
+      <div class="price-terms"><span>No retainers</span><span>No onboarding fee</span><span>Month-to-month</span><span>Quoted on the call</span></div>
+      <ul class="incl">
+        <li>Fable 5 working your DSP account every day</li>
+        <li>A written audience and measurement plan before any media is bought</li>
+        <li>An honest answer on whether DSP is the right spend at all</li>
+        <li>Your choice of approval level — change it whenever you like</li>
+        <li>Every change logged with evidence, measurement and a rollback trigger</li>
+        <li>Holdout design and Amazon Marketing Cloud reconciliation</li>
+        <li>Operators from a $500M+ Amazon team supervising</li>
+        <li><strong class="hi">The complete Orbit software suite, free</strong></li>
+        <li>Weekly plain-English reporting</li>
+        <li>Leave whenever you want</li>
+      </ul>
+      <div style="margin-top:32px">
+        <a class="btn" href="#demo" data-cta="pricing">Book a demo call →</a>
+        <span class="btn-sub">30 minutes. We'll quote you on the call, not before.</span>
+      </div>
+    </div>
+    <p class="dim" style="font-size:14.2px;max-width:66ch;margin:24px auto 0;text-align:center">We're not going to publish a number here that we'd have to renegotiate the moment we see your media budget. What we will do is tell you the structure on the call, in full, before you commit to anything.</p>
+  </div>
+</section>
+
+<!-- 12 FAQ -->
+<section>
+  <div class="wrap narrow">
+    <div class="section-head"><p class="kicker">Questions / 12</p><h2>The things people actually ask.</h2></div>
+    <div class="faq">
+      <details open><summary>Is this about Amazon delivery driver jobs?</summary><div class="d">No — and it's a fair question, because Amazon uses the same three letters for two unrelated businesses. <strong class="hi">Amazon DSP in advertising</strong> means Demand-Side Platform: buying programmatic display, video and audio ads on Amazon's properties and across the open web. <strong class="hi">Amazon DSP in logistics</strong> means Delivery Service Partner: the courier franchise programme where owner-operators run delivery vans and hire drivers. This site is entirely the advertising one. If you're looking for driving work or how to start a delivery route business, Amazon's logistics site is where you want to be.</div></details>
+      <details><summary>How do you know the display ads actually added anything?</summary><div class="d">Honestly: last-click attribution can't prove incrementality, and never could. What works is holding out a matched region or ASIN set, comparing against a control, and reconciling in Amazon Marketing Cloud, where DSP and sponsored ads stop double-counting each other. We agree the measurement design with you before we agree the budget — and we'll show you the method before we show you a number.</div></details>
+      <details><summary>What does it cost?</summary><div class="d">Pricing is set on the demo call, because DSP engagements vary widely by media budget, market coverage and how much of the account we're asked to run. The first 30 days are free and there are no retainers. We'd rather give you the real structure in a 30-minute conversation than publish a headline number we'd have to walk back.</div></details>
+      <details><summary>When would you tell me not to run DSP?</summary><div class="d">Four situations, and we look for all of them on the first call. When your sponsored ads still have unspent profitable headroom — that dollar is worth more on search. When the listings the traffic lands on aren't converting yet. When inventory can't absorb the demand you'd create. And when the media budget is too small for any holdout to reach significance, which means you'd be paying for a result you can't read. We'd rather lose the deal than take the budget in any of those four.</div></details>
+      <details><summary>Do I need my own Amazon DSP seat?</summary><div class="d">Not necessarily. We operate 109 live advertiser seats today, and the right structure depends on your spend level, whether you want the relationship in your own name, and what your brand or retail team already has in place. It's one of the first things we work out on the call, and it's a structural decision rather than a sales one.</div></details>
+      <details><summary>Can I keep approval on everything?</summary><div class="d">Yes — that's Level 1, and plenty of accounts stay there, particularly early on when real media budget is moving. Dr. DSP still does all the analysis and writes every proposal; he just waits for your click before anything reaches the DSP. You can move up to supervised or full autonomy later, or move back down, at any time and without renegotiating.</div></details>
+      <details><summary>Who are your DSP clients?</summary><div class="d">We don't name them. The brands listed on this page are companies our agency has worked with and are public; none of them are presented as DSP clients. Media plans, audience strategies and performance belong to the brands paying for them. On a call we'll walk you through anonymised account structure and the measurement method in detail, which tells you far more about whether we're any good than a logo would.</div></details>
+      <details><summary>Are those July 2026 numbers what I should expect?</summary><div class="d">No, and we'd be misleading you if we implied it. Those figures are a portfolio-wide pull across 30 advertisers for one month — 6.04x return on ad spend, 78.4 million impressions, a $4.00 CPM, a $1.42 blended cost per click, a $5.49 blended cost per acquisition across 57,137 attributed purchases, 20.1% of them new to brand. Some of those 30 advertisers did better and some did worse. Your category, creative, price point, listings and starting position all change the answer, and nothing here is a guarantee of outcome.</div></details>
+      <details><summary>What about creative — do I need new assets?</summary><div class="d">Usually some, and we'll be specific about what's missing rather than vague about it. Display needs different assets from sponsored ads, and creative is a real cost line that we quote separately and honestly on the call. What we won't do is bury it, or pretend a static image resized six ways is a campaign.</div></details>
+      <details><summary>Do I lose control of my account?</summary><div class="d">No. You keep ownership of everything, you choose the approval level, you can see every change and its reasoning, and the hard limits in section 08 are the real boundary. Total budget increases, new markets, new creative, pricing and anything touching inventory risk always come to a human first — at every level, including full autonomy.</div></details>
+      <details><summary>How does this relate to Dr. PPC?</summary><div class="d">They're siblings, and most brands should think about them together. Dr. PPC runs sponsored ads — the search-driven, bottom-of-funnel work. Dr. DSP runs programmatic display, video and audio — the audience-driven work above it. The interesting question is where they overlap, which is exactly what the AMC reconciliation is for. You can run either one on its own; running both is where the double-counting finally becomes visible.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="demo" style="border-bottom:none">
+  <div class="wrap cta-final">
+    <p class="kicker">Start / 13</p>
+    <h2 style="margin-top:14px">Put Dr. DSP on your account.</h2>
+    <p class="lede" style="margin:18px auto 0">Thirty minutes. We'll look at your real account, tell you honestly whether Amazon DSP is the right next dollar, and — if it is — show you the audience plan and the measurement design before anyone buys a single impression. The first 30 days are free either way, and Orbit comes with it.</p>
+    <div style="margin-top:30px">
+      <a class="btn" href="https://calendly.com/jayce-remktr/30min" data-cta="footer">Book a demo call →</a>
+      <span class="btn-sub">No contract. No onboarding fee. Cancel anytime.</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- THE FAMILY -->
+<section style="border-bottom:none;padding-top:0">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="kicker">The rest of the family</p>
+      <h2 style="font-size:clamp(22px,3vw,30px)">If you're on the wrong page, here's the right one.</h2>
+      <p>These are our other products and companies. Each line is the honest reason you'd want that one instead of, or as well as, this one.</p>
+    </div>
+    <div class="family">
+      <a class="fam" href="https://drppc.ai" rel="noopener">
+        <div class="nm">Dr. PPC</div><div class="url">drppc.ai</div>
+        <div class="why">If your Amazon problem is sponsored ads rather than display — bids, search terms, negatives, placements — start there. Same three approval levels, same Orbit, published pricing. Most brands should get sponsored ads right before adding DSP.</div>
+      </a>
+      <a class="fam" href="https://drstock.ai" rel="noopener">
+        <div class="nm">Dr. Stock</div><div class="url">drstock.ai</div>
+        <div class="why">If the real constraint is inventory — stockouts killing rank, cash tied up in the wrong SKUs, reorder timing done by feel — fix that first. Advertising into an out-of-stock catalogue is the most expensive mistake on this list.</div>
+      </a>
+      <a class="fam" href="https://fullcircleorbit.com" rel="noopener">
+        <div class="nm">Orbit</div><div class="url">fullcircleorbit.com</div>
+        <div class="why">The software suite itself. If you have an in-house team who want the analytics, profitability and trackers without anyone else operating the account, this is the layer you're after. It's included free with Dr. DSP either way.</div>
+      </a>
+      <a class="fam" href="https://fullcircleagency.com" rel="noopener">
+        <div class="nm">Full Circle</div><div class="url">fullcircleagency.com</div>
+        <div class="why">The full-service Amazon agency behind all of it — listings, creative, catalogue, brand store, strategy. If your needs go well past advertising and you want people rather than a product, talk to them.</div>
+      </a>
+      <a class="fam" href="https://remktr.com" rel="noopener">
+        <div class="nm">reMKTR</div><div class="url">remktr.com</div>
+        <div class="why">Amazon DSP media buying, agency-side. To be straight with you: reMKTR is this product's sibling and operates the same DSP book. If you'd rather buy a media-buying relationship than a managed product with approval levels and a console, that's the door.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <div class="fine">
+    <strong style="color:var(--fg);font-family:var(--display)">Dr. DSP</strong> — an Orbit product, operated by the Full Circle group. Powered by Fable 5.<br />
+    <b style="color:#8f8ca0">DSP here means Demand-Side Platform (programmatic advertising), not Delivery Service Partner (Amazon's delivery franchise).</b><br />
+    Brands shown are companies our agency has worked with; they are not identified as DSP clients and we do not name DSP clients. Performance figures are from an Amazon DSP API pull on 20 August 2026 covering 30 advertisers in July 2026, and are portfolio-wide across those 30 advertisers only — not the full book, and not a projection. Figures inside the console illustration are examples, not client data. Results vary by brand, category, creative and starting point; nothing here is a guarantee of outcome. Dr. DSP is a character representing the system — the operators supervising him are real people.
+  </div>
+</div></footer>
+
+<script>
+window.FC_CTA={ga4:'G-FK1FG3TXLJ',brand:'dr-dsp',href:'https://calendly.com/jayce-remktr/30min',
+label:'Book a demo call',sub:'First 30 days free. No contract.',
+popup:{title:'Try Dr. DSP free for 30 days',body:'Thirty minutes on your real account. We tell you honestly whether Amazon DSP is the right next dollar, and show you the audience plan and the measurement design before anyone buys an impression. Orbit is included.',label:'Book a demo call'}};
+</script>
+<script src="assets/engagement.js" defer></script>
+</body>
+</html>
