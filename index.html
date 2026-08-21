@@ -275,6 +275,20 @@ footer{padding:40px 0 60px;}
 footer .fine{font-family:var(--mono);font-size:11.5px;color:#8b8898;max-width:68ch;line-height:1.7;}
 .cta-final{text-align:center;}
 .cta-final .lede{margin-left:auto;margin-right:auto;}
+/* --- nav-anchor-block --- */
+/* ── in-page nav ─────────────────────────────────────────────────────────
+   The top bar carries ONE link out of the page — the knowledge hub. Every
+   other item jumps to a section below, so the header stops competing with
+   the article hubs for the same click. */
+html{scroll-behavior:smooth}
+section[id],header[id]{scroll-margin-top:84px}
+nav.top ul a[href^="#"]{opacity:.82}
+nav.top ul a[href^="#"]:hover{opacity:1;color:var(--accent)}
+.navhub{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);border:1px solid rgba(var(--accent-rgb),.42);border-radius:7px;
+  padding:7px 12px;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s}
+.navhub:hover{background:rgba(var(--accent-rgb),.1);border-color:var(--accent)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <style>/* the bar now carries a section link */
 nav.top ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
@@ -286,7 +300,9 @@ nav.top ul a:hover{color:var(--accent)}
 
 <nav class="top"><div class="wrap">
   <div class="logo">Dr. <span>DSP</span><em>Demand-Side Platform</em></div>
-  <ul><li><a href="/learn/">DSP Guides</a></li></ul><a class="navcta" href="#demo" data-cta="nav">Book a Dr. DSP demo →</a>
+  <ul><li><a href="/learn/">DSP Guides</a></li></ul>
+  <a class="navhub" href="/learn/">DSP Guides</a>
+  <a class="navcta" href="#demo" data-cta="nav">Book a Dr. DSP demo →</a>
 </div></nav>
 
 <!-- HERO -->
@@ -322,7 +338,7 @@ nav.top ul a:hover{color:var(--accent)}
   <span><b>109</b> live Amazon DSP advertiser seats ·</span><span><b>6.04x</b> ROAS across 30 advertisers, July 2026 ·</span><span><b>78.4M</b> impressions ·</span><span><b>$5.49</b> blended cost per acquisition ·</span><span><b>20.1%</b> new-to-brand ·</span><span><b>$500M+</b> Amazon spend managed ·</span><span><b>100+</b> brands ·</span><span><b>Orbit software included free</b> ·</span><span><b>Powered by Fable 5</b> ·</span>
 </div></div>
 
-<main data-article>
+<main data-no-autocta>
 
 <!-- 01 WHERE HE TRAINED -->
 <section>
@@ -826,6 +842,7 @@ nav.top ul a:hover{color:var(--accent)}
 </section>
 
 <footer><div class="wrap">
+  <div class="flinks" data-hubrow><a href="/learn/">DSP Guides</a><a href="/compare/">Compare</a></div>
   <div class="fine">
     <strong style="color:var(--fg);font-family:var(--display)">Dr. DSP</strong> — an Orbit product, operated by the Full Circle group. Powered by Fable 5.<br />
     <b style="color:#8f8ca0">DSP here means Demand-Side Platform (programmatic advertising), not Delivery Service Partner (Amazon's delivery franchise).</b><br />

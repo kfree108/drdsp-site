@@ -76,7 +76,13 @@
   // paragraphs*. It must NOT disable the popup or scroll tracking — a landing
   // page with no <article> still needs both, and an early return here silently
   // stripped the popup from the Dr. PPC homepage.
+  // The homepages are hand-built: they already carry a hero CTA and a closing
+  // #demo section, so auto-placing "after the first paragraph" dropped a second
+  // identical button directly under the hero. They opt out with
+  // data-no-autocta. Matching `main` alone is not enough to exclude them --
+  // every homepage has a <main> -- so the opt-out is checked explicitly.
   var article = document.querySelector('[data-article], article, main');
+  if (article && article.closest('[data-no-autocta]')) article = null;
   var placed = [];
 
   if (article) {
