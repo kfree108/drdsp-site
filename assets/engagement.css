@@ -12,7 +12,7 @@
   border: 1px solid var(--line, #e6e4ee);
   border-left: 3px solid var(--accent, #2dd4a7);
   border-radius: 12px;
-  background: var(--card, #fff);
+  background: var(--card, var(--raised, #fff));
 }
 
 .fc-cta-btn {
@@ -52,14 +52,22 @@
 }
 .fc-pop.on { opacity: 1; }
 
+/* The card takes BOTH its background and its text colour from the same token
+ * set, or it renders one theme's text on the other theme's ground. It did:
+ * drppc.ai defines --card as #0e0b1a (near-black) and does not define --ink at
+ * all, so the background came out near-black and the text fell back to
+ * #0b0912 — near-black on near-black. The heading and every spec value were
+ * invisible, while the labels and lede stayed readable because they use --dim.
+ * --fg is the companion of --card on every one of our sites; --ink was never
+ * defined on any of them. */
 .fc-pop-card {
   position: relative;
   max-width: 430px;
   width: 100%;
   padding: 30px 30px 26px;
   border-radius: 16px;
-  background: var(--card, #fff);
-  color: var(--ink, #0b0912);
+  background: var(--card, var(--raised, #fff));
+  color: var(--fg, #0b0912);
   box-shadow: 0 24px 60px rgba(0, 0, 0, .35);
   transform: translateY(10px) scale(.98);
   transition: transform .2s ease;
@@ -93,7 +101,9 @@
   line-height: 1;
   cursor: pointer;
 }
-.fc-pop-x:hover { background: var(--soft, #f0edf7); }
+/* --soft is undefined on every brand, so this flashed a light-grey square
+   on a dark card. Tint from the card's own foreground instead. */
+.fc-pop-x:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
 .fc-pop-x:focus-visible {
   outline: 2px solid var(--accent, #2dd4a7);
   outline-offset: 2px;
@@ -173,7 +183,7 @@
   background:none;border:0;cursor:pointer;
   font:inherit;font-size:12px;color:var(--dim,#5c5c6b);
 }
-.fc-pop-no:hover{color:var(--ink,#0b0912);text-decoration:underline;text-underline-offset:3px}
+.fc-pop-no:hover{color:var(--fg,#0b0912);text-decoration:underline;text-underline-offset:3px}
 .fc-pop-no:focus-visible{outline:2px solid var(--accent,#2dd4a7);outline-offset:-2px}
 
 /* close: quiet until it is actually wanted */
