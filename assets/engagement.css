@@ -34,8 +34,16 @@
   display: inline-block;
   padding: 11px 20px;
   border-radius: 8px;
-  background: var(--accent,#b97aff);
-  color: var(--accent-fg, #06231a);
+  background: var(--accent,#b97aff) !important;
+  /* !important because this button is injected into host pages we do not
+     control the stylesheets of. remktr.com's HubSpot theme carries
+     `a:not(...):not(...)` with seven :not() clauses — specificity (0,8,1) —
+     which captured the button's colour and painted it #131015. That went
+     unnoticed while the accent fallback was teal (#131015 on #2dd4a7 is an
+     accidental 7.8:1) and became a 2.79:1 button the moment the fallback
+     became reMKTR's purple. A widget dropped onto someone else's page has to
+     hold its own colours or it is only ever accidentally readable. */
+  color: var(--accent-fg, #06231a) !important;
   font-weight: 650;
   font-size: 14.5px;
   line-height: 1.2;
@@ -45,7 +53,8 @@
 @supports (color: oklch(from red l c h)) {
   .fc-cta-btn {
     color: var(--accent-fg,
-      oklch(from var(--accent,#b97aff) clamp(0, (l - 0.62) * -1000, 1) 0 0));
+      oklch(from var(--accent,#b97aff) clamp(0, (l - 0.62) * -1000, 1) 0 0))
+      !important;
   }
 }
 .fc-cta-btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
@@ -234,10 +243,13 @@
 /* The full-strength accent is fine inline, but at modal size on a dark ground it
    glares. Dial the fill back and let the border and weight carry it instead. */
 .fc-pop-card .fc-cta-btn{
-  background:color-mix(in srgb,var(--accent,#b97aff) 88%,#0b0912);
+  /* matches the !important the base rule needs to survive host themes — without
+     it the base declaration would win here and the modal fill would go back to
+     full strength */
+  background:color-mix(in srgb,var(--accent,#b97aff) 88%,#0b0912) !important;
   box-shadow:0 1px 0 color-mix(in srgb,var(--accent,#b97aff) 40%,transparent) inset;
 }
 .fc-pop-card .fc-cta-btn:hover{
-  background:var(--accent,#b97aff);filter:none;transform:none;
+  background:var(--accent,#b97aff) !important;filter:none;transform:none;
 }
 .fc-pop{background:rgba(6,5,12,.62);backdrop-filter:blur(2px)}
