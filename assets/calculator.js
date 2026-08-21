@@ -8,7 +8,12 @@
  *
  * Declare the plans on the page before loading this:
  *   window.FC_CALC = {
- *     spend: 25000,                       // starting monthly ad spend
+ *     spend: 25000,                       // starting value on the slider
+ *     label: "Your monthly order volume",  // slider label (default: ad spend)
+ *     unit:  "month",                      // shown after the value
+ *     prefix: "$", qtyPrefix: "",          // money vs a count
+ *     qtySuffix: " orders", basis: "spend",
+ *     min: 500, max: 100000, step: 500,
  *     note: "optional line under the table",
  *     plans: [
  *       {name:"Helium 10 Diamond", base:359, pct:2, note:"2% managed spend fee"},
@@ -33,6 +38,13 @@
   if (!mount) return;
 
   var spend = C.spend || 25000;
+  // Configurable so the same component works for ad spend, monthly orders,
+  // tracked products or SKU counts. Hardcoding "monthly Amazon ad spend"
+  // meant inventory pages had to go without a calculator entirely.
+  var LABEL = C.label || 'Your monthly Amazon ad spend';
+  var UNIT  = C.unit  || 'month';
+  var PREFIX = C.prefix === undefined ? '$' : C.prefix;
+  var MIN = C.min || 2000, MAX = C.max || 300000, STEP = C.step || 1000;
 
   function monthly(p, s) {
     if (p.quote) return null;
@@ -47,14 +59,20 @@
   }
 
   function money(n) {
-    return '$' + Math.round(n).toLocaleString('en-US');
+    return PREFIX + Math.round(n).toLocaleString('en-US');
+  }
+  // the x-axis quantity is not always money — orders and SKUs are counts
+  function qty(n) {
+    return (C.qtyPrefix === undefined ? PREFIX : C.qtyPrefix) +
+           Math.round(n).toLocaleString('en-US') + (C.qtySuffix || '');
   }
 
   function describe(p) {
     if (p.quote) return p.note || 'Quote only — no published price';
     var bits = [];
     if (p.base) bits.push(money(p.base) + '/mo');
-    if (p.pct) bits.push(p.pct + '% of spend' + (p.over ? ' over ' + money(p.over) : ''));
+    if (p.pct) bits.push(p.pct + '% of ' + (C.basis || 'spend') +
+                         (p.over ? ' over ' + qty(p.over) : ''));
     if (p.cap) bits.push('capped at ' + money(p.cap) + '/mo');
     return bits.join(' + ').replace('+ capped', '· capped');
   }
@@ -62,10 +80,11 @@
   mount.innerHTML =
     '<div class="fc-calc">' +
       '<div class="fc-calc-head">' +
-        '<label for="fc-calc-range">Your monthly Amazon ad spend</label>' +
+        '<label for="fc-calc-range">' + LABEL + '</label>' +
         '<output id="fc-calc-out" class="fc-calc-out"></output>' +
       '</div>' +
-      '<input id="fc-calc-range" type="range" min="2000" max="300000" step="1000" ' +
+      '<input id="fc-calc-range" type="range" min="' + MIN + '" max="' + MAX +
+             '" step="' + STEP + '" ' +
              'value="' + spend + '" aria-describedby="fc-calc-out">' +
       '<div class="fc-calc-tw"><table class="fc-calc-tbl">' +
         '<thead><tr><th>Option</th><th>How it prices</th>' +
@@ -85,7 +104,7 @@
 
   function render() {
     var s = +range.value;
-    out.textContent = money(s) + ' / month';
+    out.textContent = qty(s) + ' / ' + UNIT;
 
     var priced = C.plans.map(function (p) { return { p: p, m: monthly(p, s) }; })
                         .filter(function (r) { return r.m !== null; });
