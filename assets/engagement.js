@@ -85,6 +85,19 @@
       function (p) { return p.textContent.trim().length > 80 && !p.closest('.fc-cta'); }
     );
 
+    // Some of our best pages carry their argument in tables and lists rather
+    // than prose — amazon-ppc-software-comparison is 2,464 words across six
+    // paragraphs. Counting only <p> put a single CTA on those pages and no
+    // depth CTAs at all. Fall back to section-level blocks so placement tracks
+    // the shape of the page instead of assuming every page is an essay.
+    if (paras.length < 8) {
+      var blocks = Array.prototype.filter.call(
+        article.querySelectorAll('h2, table, ul, ol, dl'),
+        function (n) { return !n.closest('.fc-cta') && n.offsetHeight > 40; }
+      );
+      if (blocks.length > paras.length) paras = blocks;
+    }
+
     var insertAfter = function (node, el) {
       if (node && node.parentNode) { node.parentNode.insertBefore(el, node.nextSibling); placed.push(el); }
     };
@@ -202,8 +215,14 @@
     });
   }
 
+  // Once per ARTICLE, not once per session. The session-wide flag meant a reader
+  // who saw the popup on one comparison page never saw it again anywhere on the
+  // site — which is exactly how it looked "missing" on pages that were working
+  // correctly. Each article gets one offer; dismissing it silences that article,
+  // not the whole visit.
+  var POP_KEY = 'fc_popped:' + location.pathname;
   var popped = false;
-  try { popped = sessionStorage.getItem('fc_popped') === '1'; } catch (e) {}
+  try { popped = sessionStorage.getItem(POP_KEY) === '1'; } catch (e) {}
 
   var ticking = false;
   function onScroll() {
@@ -217,10 +236,12 @@
           track('scroll_depth', { percent_scrolled: parseInt(m[1], 10) });
         });
       });
-      var longEnough = document.documentElement.scrollHeight > window.innerHeight * 2.2;
+      // 1.6, not 2.2: the old gate silently skipped table-heavy pages on a tall
+      // desktop window, which is the other half of "the popup is missing".
+      var longEnough = document.documentElement.scrollHeight > window.innerHeight * 1.6;
       if (!popped && longEnough && d >= 0.40) {
         popped = true;
-        try { sessionStorage.setItem('fc_popped', '1'); } catch (e) {}
+        try { sessionStorage.setItem(POP_KEY, '1'); } catch (e) {}
         popup();
       }
     });
