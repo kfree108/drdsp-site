@@ -90,24 +90,42 @@
     // paragraphs. Counting only <p> put a single CTA on those pages and no
     // depth CTAs at all. Fall back to section-level blocks so placement tracks
     // the shape of the page instead of assuming every page is an essay.
+    // Choosing EITHER prose or blocks still missed a shape: the /learn/ hubs
+    // run ~1,700 words as seven paragraphs interleaved with section headings
+    // and link lists. Prose alone gave seven anchors (one short of the depth
+    // threshold), and blocks alone lost because a section <h2> is only ~25px
+    // tall and the old 40px filter threw every heading away. Merging both in
+    // document order is what actually tracks the page.
     if (paras.length < 8) {
-      var blocks = Array.prototype.filter.call(
-        article.querySelectorAll('h2, table, ul, ol, dl'),
-        function (n) { return !n.closest('.fc-cta') && n.offsetHeight > 40; }
+      var merged = Array.prototype.filter.call(
+        article.querySelectorAll('p, h2, table, ul, ol, dl'),
+        function (n) {
+          if (n.closest('.fc-cta')) return false;
+          if (n.tagName === 'P') return n.textContent.trim().length > 80;
+          return n.offsetHeight > 20;   // still skips collapsed/hidden blocks
+        }
       );
-      if (blocks.length > paras.length) paras = blocks;
+      if (merged.length > paras.length) paras = merged;
     }
+
+    // A CTA placed directly after a heading separates it from the section it
+    // introduces, which looks like a mistake. Step past headings instead.
+    var heading = function (n) { return /^H[1-6]$/.test(n.tagName); };
+    var settle = function (i) {
+      while (i < paras.length - 1 && heading(paras[i])) i++;
+      return i;
+    };
 
     var insertAfter = function (node, el) {
       if (node && node.parentNode) { node.parentNode.insertBefore(el, node.nextSibling); placed.push(el); }
     };
     if (paras.length) {
-      insertAfter(paras[0], cta('after-first-paragraph'));
+      insertAfter(paras[settle(0)], cta('after-first-paragraph'));
       // Only add depth CTAs when the article is long enough that they land in
       // distinct places — on a short page they would stack on top of each other.
       if (paras.length >= 8) {
         [[0.25, 'depth-25'], [0.50, 'depth-50'], [0.75, 'depth-75']].forEach(function (m) {
-          var i = Math.floor(paras.length * m[0]);
+          var i = settle(Math.floor(paras.length * m[0]));
           if (i > 0 && i < paras.length) insertAfter(paras[i], cta(m[1]));
         });
       }
