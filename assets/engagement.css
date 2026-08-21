@@ -10,16 +10,31 @@
   margin: 34px 0;
   padding: 20px 22px;
   border: 1px solid var(--line, #e6e4ee);
-  border-left: 3px solid var(--accent, #2dd4a7);
+  border-left: 3px solid var(--accent,#b97aff);
   border-radius: 12px;
   background: var(--card, var(--raised, #fff));
 }
 
+/* The button's text colour has to be chosen against the ACCENT, not fixed.
+ * No brand stylesheet defines --accent-fg, so this always fell back to
+ * #06231a — a near-black green picked for Dr. PPC's bright #00ff9d. That is
+ * fine on the three light accents and catastrophic on reMKTR, whose accent is
+ * a dark purple (#6e19ad): measured 1.90:1 on the inline buttons and 1.67:1
+ * in the popup, i.e. an unreadable button on all 125 generated remktr.com
+ * pages. Same class of bug as the near-black-on-near-black card below, one
+ * layer further in — and it would come back for any future brand whose accent
+ * happens to be dark.
+ *
+ * So derive the foreground from the accent's own lightness instead of asking
+ * every brand to remember a token: oklch relative colour resolves the clamp to
+ * 0 (black) when the accent is light and 1 (white) when it is dark. A brand
+ * that DOES set --accent-fg still wins, because the base declaration is what
+ * the @supports block overrides. */
 .fc-cta-btn {
   display: inline-block;
   padding: 11px 20px;
   border-radius: 8px;
-  background: var(--accent, #2dd4a7);
+  background: var(--accent,#b97aff);
   color: var(--accent-fg, #06231a);
   font-weight: 650;
   font-size: 14.5px;
@@ -27,9 +42,15 @@
   text-decoration: none;
   transition: transform .12s ease, filter .12s ease;
 }
+@supports (color: oklch(from red l c h)) {
+  .fc-cta-btn {
+    color: var(--accent-fg,
+      oklch(from var(--accent,#b97aff) clamp(0, (l - 0.62) * -1000, 1) 0 0));
+  }
+}
 .fc-cta-btn:hover { filter: brightness(1.07); transform: translateY(-1px); }
 .fc-cta-btn:focus-visible {
-  outline: 2px solid var(--accent, #2dd4a7);
+  outline: 2px solid var(--accent,#b97aff);
   outline-offset: 3px;
 }
 
@@ -105,7 +126,7 @@
    on a dark card. Tint from the card's own foreground instead. */
 .fc-pop-x:hover { background: color-mix(in srgb, currentColor 12%, transparent); }
 .fc-pop-x:focus-visible {
-  outline: 2px solid var(--accent, #2dd4a7);
+  outline: 2px solid var(--accent,#b97aff);
   outline-offset: 2px;
 }
 
@@ -138,10 +159,17 @@
 .fc-pop-card::before{
   content:"";display:block;height:2px;
   background:linear-gradient(90deg,
-    color-mix(in srgb,var(--accent,#2dd4a7) 70%,transparent),transparent 70%);
+    color-mix(in srgb,var(--accent,#b97aff) 70%,transparent),transparent 70%);
 }
 
-.fc-pop-eyebrow{
+/* Scoped to .fc-pop-card, not bare, because `.fc-pop-card p` further up is
+   (0,1,1) and a bare `.fc-pop-eyebrow` is only (0,1,0) — so the generic
+   paragraph rule was winning both the size and the margin. The eyebrow was
+   rendering as 14.5px full-bleed uppercase with a 20px gap under it instead
+   of a 9.5px micro-label inset to match the heading, on every popup on all
+   five brands. The lede below already carries !important for exactly this
+   collision; raising specificity fixes it without adding a second one. */
+.fc-pop-card p.fc-pop-eyebrow{
   margin:22px 30px 0;font-size:9.5px;font-weight:700;letter-spacing:.19em;
   text-transform:uppercase;color:var(--dim,#5c5c6b);
 }
@@ -184,7 +212,7 @@
   font:inherit;font-size:12px;color:var(--dim,#5c5c6b);
 }
 .fc-pop-no:hover{color:var(--fg,#0b0912);text-decoration:underline;text-underline-offset:3px}
-.fc-pop-no:focus-visible{outline:2px solid var(--accent,#2dd4a7);outline-offset:-2px}
+.fc-pop-no:focus-visible{outline:2px solid var(--accent,#b97aff);outline-offset:-2px}
 
 /* close: quiet until it is actually wanted */
 .fc-pop-x{
@@ -193,7 +221,7 @@
   color:var(--dim,#5c5c6b);font-size:0;opacity:.65;transition:opacity .12s,background .12s;
 }
 .fc-pop-x:hover{opacity:1;background:color-mix(in srgb,var(--dim,#5c5c6b) 12%,transparent)}
-.fc-pop-x:focus-visible{opacity:1;outline:1.5px solid var(--accent,#2dd4a7);outline-offset:1px}
+.fc-pop-x:focus-visible{opacity:1;outline:1.5px solid var(--accent,#b97aff);outline-offset:1px}
 
 @media (max-width:520px){
   .fc-pop-eyebrow,.fc-pop-card h3,.fc-pop-lede{margin-left:22px;margin-right:22px}
@@ -206,10 +234,10 @@
 /* The full-strength accent is fine inline, but at modal size on a dark ground it
    glares. Dial the fill back and let the border and weight carry it instead. */
 .fc-pop-card .fc-cta-btn{
-  background:color-mix(in srgb,var(--accent,#2dd4a7) 88%,#0b0912);
-  box-shadow:0 1px 0 color-mix(in srgb,var(--accent,#2dd4a7) 40%,transparent) inset;
+  background:color-mix(in srgb,var(--accent,#b97aff) 88%,#0b0912);
+  box-shadow:0 1px 0 color-mix(in srgb,var(--accent,#b97aff) 40%,transparent) inset;
 }
 .fc-pop-card .fc-cta-btn:hover{
-  background:var(--accent,#2dd4a7);filter:none;transform:none;
+  background:var(--accent,#b97aff);filter:none;transform:none;
 }
 .fc-pop{background:rgba(6,5,12,.62);backdrop-filter:blur(2px)}

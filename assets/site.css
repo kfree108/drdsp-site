@@ -12,7 +12,15 @@
 
 :root{
   --base:#08060f; --raised:#0e0b1a; --fg:#f4f4f6; --dim:#9a97a8; --line:#221e33;
-  --accent:#00ff9d; --amber:#f59e0b;
+  /* The quiet grey for bylines, breadcrumbs, source notes, footer fine print
+     and the hub's list descriptions. It was #6d6a7c, hardcoded in ten separate
+     declarations, which measures 3.84:1 on --base and fails WCAG AA on every
+     page of all four dark sites — including the entire /learn/ hub, where the
+     one-line description under each of 161 links uses it. #8b8898 measures
+     5.82:1 and is still clearly quieter than --dim (7.06:1). One token, so it
+     cannot drift back apart. */
+  --muted:#8b8898;
+  --accent:#b97aff; --accent-rgb:185,122,255; --amber:#f59e0b;
   --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
 }
@@ -41,14 +49,14 @@ nav.top ul a{font-family:var(--mono);font-size:12px;color:var(--dim);text-decora
 nav.top ul a:hover{color:var(--accent)}
 .navcta{font-family:var(--mono);font-size:12px;font-weight:700;background:var(--accent);
   color:var(--base);padding:8px 14px;border-radius:7px;text-decoration:none}
-.crumbs{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;padding:22px 0 0;
+.crumbs{font-family:var(--mono);font-size:11.5px;color:var(--muted);padding:22px 0 0;
   display:flex;flex-wrap:wrap;gap:7px}
-.crumbs a{color:#6d6a7c;text-decoration:none}
+.crumbs a{color:var(--muted);text-decoration:none}
 .crumbs a:hover{color:var(--accent)}
 article{padding:0 0 60px}
-.meta{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;margin:16px 0 30px;
+.meta{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin:16px 0 30px;
   padding-bottom:18px;border-bottom:1px solid var(--line)}
-.answer{border-left:3px solid var(--accent);background:rgba(0,255,157,.05);
+.answer{border-left:3px solid var(--accent);background:rgba(var(--accent-rgb),.05);
   padding:20px 22px;border-radius:0 11px 11px 0;margin:0 0 30px;font-size:18px}
 .answer .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
@@ -58,7 +66,7 @@ article{padding:0 0 60px}
 .rec .big{font-family:var(--display);font-size:28px;font-weight:800;color:var(--accent);
   letter-spacing:-.03em;line-height:1.1}
 .rec .lbl{font-family:var(--mono);font-size:11.5px;color:var(--dim);margin-top:9px;line-height:1.55}
-.rec .who{font-family:var(--mono);font-size:10.5px;color:#6d6a7c;margin-top:8px}
+.rec .who{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-top:8px}
 .tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;
   background:var(--raised);margin:24px 0}
 table{width:100%;border-collapse:collapse;font-size:14.5px}
@@ -74,7 +82,7 @@ ul.body li,ol.body li{margin-bottom:.5em}
 .steps{counter-reset:s;list-style:none;padding:0;margin:0 0 1.4em}
 .steps li{counter-increment:s;position:relative;padding:0 0 14px 40px}
 .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:26px;height:26px;
-  border-radius:7px;background:rgba(0,255,157,.1);border:1px solid rgba(0,255,157,.3);
+  border-radius:7px;background:rgba(var(--accent-rgb),.1);border:1px solid rgba(var(--accent-rgb),.3);
   color:var(--accent);font-family:var(--mono);font-size:12px;font-weight:700;
   display:flex;align-items:center;justify-content:center}
 .faq details{border-bottom:1px solid var(--line);padding:18px 0}
@@ -84,8 +92,8 @@ ul.body li,ol.body li{margin-bottom:.5em}
 .faq summary::after{content:"+";font-family:var(--mono);color:var(--accent);font-size:19px}
 .faq details[open] summary::after{content:"–"}
 .faq p{color:var(--dim);font-size:15.4px;margin:12px 0 0}
-.takeaway{border:1px solid rgba(0,255,157,.3);border-radius:13px;padding:24px;
-  background:linear-gradient(180deg,rgba(0,255,157,.05),rgba(14,11,26,.9));margin:34px 0}
+.takeaway{border:1px solid rgba(var(--accent-rgb),.3);border-radius:13px;padding:24px;
+  background:linear-gradient(180deg,rgba(var(--accent-rgb),.05),rgba(14,11,26,.9));margin:34px 0}
 .takeaway .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--accent);display:block;margin-bottom:9px}
 .cta{border:1px solid var(--line);border-radius:13px;padding:26px;background:var(--raised);margin:34px 0}
@@ -98,14 +106,14 @@ ul.body li,ol.body li{margin-bottom:.5em}
 .links ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:9px}
 .links li a{font-size:15.5px;text-decoration:none}
 .links li a:hover{text-decoration:underline}
-.links li span{display:block;font-family:var(--mono);font-size:11px;color:#6d6a7c;margin-top:2px}
+.links li span{display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:2px}
 .spokegrid{display:grid;gap:11px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   list-style:none;padding:0;margin:0}
 .spokegrid li{border:1px solid var(--line);border-radius:11px;padding:15px 17px;background:var(--raised)}
-.sourcenote{font-family:var(--mono);font-size:11px;color:#6d6a7c;line-height:1.7;
+.sourcenote{font-family:var(--mono);font-size:11px;color:var(--muted);line-height:1.7;
   border-top:1px solid var(--line);margin-top:34px;padding-top:20px}
 footer{border-top:1px solid var(--line);padding:34px 0 60px}
-footer .fine{font-family:var(--mono);font-size:11px;color:#6d6a7c;max-width:62ch;line-height:1.8}
+footer .fine{font-family:var(--mono);font-size:11px;color:var(--muted);max-width:62ch;line-height:1.8}
 @media(max-width:640px){.answer{font-size:16.5px}}
 
 /* ── additions ──────────────────────────────────────────────────────────
@@ -137,14 +145,14 @@ article > section p:last-child{margin-bottom:0}
 .spokegrid li a{font-size:15.5px;text-decoration:none;font-weight:600}
 .spokegrid li a:hover{text-decoration:underline}
 .spokegrid li span{display:block;font-family:var(--mono);font-size:10.5px;
-  color:#6d6a7c;margin-top:5px;line-height:1.55}
+  color:var(--muted);margin-top:5px;line-height:1.55}
 
 /* ── the library ──────────────────────────────────────────────────────── */
 .hubwrap{max-width:1080px;margin:0 auto;padding:0 22px}
 .hubhead{padding:34px 0 8px}
 .hubhead p.lede{font-size:19px;color:var(--dim);max-width:64ch;margin:16px 0 0}
-.flagship{border:1px solid rgba(0,255,157,.3);border-radius:14px;padding:26px 28px;
-  background:linear-gradient(180deg,rgba(0,255,157,.06),rgba(14,11,26,.9));margin:30px 0 10px}
+.flagship{border:1px solid rgba(var(--accent-rgb),.3);border-radius:14px;padding:26px 28px;
+  background:linear-gradient(180deg,rgba(var(--accent-rgb),.06),rgba(14,11,26,.9));margin:30px 0 10px}
 .flagship .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
   text-transform:uppercase;color:var(--accent);display:block;margin-bottom:10px}
 .flagship h2{font-size:clamp(22px,3vw,30px);margin:0 0 10px}
@@ -153,7 +161,7 @@ article > section p:last-child{margin-bottom:0}
 .flagship p{color:var(--dim);font-size:15.5px;margin:0}
 .hubsec{border-top:1px solid var(--line);margin-top:44px;padding-top:26px}
 .hubsec > h2{font-size:22px;margin:0 0 6px}
-.hubsec > p.note{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;
+.hubsec > p.note{font-family:var(--mono);font-size:11.5px;color:var(--muted);
   letter-spacing:.04em;margin:0 0 18px}
 .hublist{list-style:none;padding:0;margin:0;display:grid;gap:11px;
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
@@ -161,7 +169,7 @@ article > section p:last-child{margin-bottom:0}
   background:var(--raised)}
 .hublist li a{font-size:15.5px;font-weight:600;text-decoration:none;display:block}
 .hublist li a:hover{text-decoration:underline}
-.hublist li span{display:block;font-family:var(--mono);font-size:10.5px;color:#6d6a7c;
+.hublist li span{display:block;font-family:var(--mono);font-size:10.5px;color:var(--muted);
   margin-top:6px;line-height:1.6}
 .hublist li em{font-style:normal;font-family:var(--mono);font-size:9.5px;
   letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
@@ -182,6 +190,6 @@ letter-spacing:.13em;color:var(--dim,#5c5c6b);font-weight:600}
 .fc-family ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;
 grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
 .fc-family li{color:var(--dim,#5c5c6b)}
-.fc-family a{font-weight:650;text-decoration:none;color:var(--accent,#2dd4a7)}
+.fc-family a{font-weight:650;text-decoration:none;color:var(--accent,#b97aff)}
 .fc-family a:hover{text-decoration:underline}
 

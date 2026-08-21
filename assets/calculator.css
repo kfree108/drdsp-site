@@ -27,18 +27,18 @@
   font-family: var(--mono, ui-monospace, 'SF Mono', Menlo, monospace);
   font-size: 21px;
   font-weight: 700;
-  color: var(--accent, #2dd4a7);
+  color: var(--accent,#b97aff);
   font-variant-numeric: tabular-nums;
 }
 
 .fc-calc input[type="range"] {
   width: 100%;
   margin: 0 0 20px;
-  accent-color: var(--accent, #2dd4a7);
+  accent-color: var(--accent,#b97aff);
   cursor: pointer;
 }
 .fc-calc input[type="range"]:focus-visible {
-  outline: 2px solid var(--accent, #2dd4a7);
+  outline: 2px solid var(--accent,#b97aff);
   outline-offset: 4px;
 }
 
@@ -89,9 +89,9 @@
   background: var(--dim, #9a94ab);
   opacity: .45;
 }
-.fc-calc-tbl tr.us { background: color-mix(in srgb, var(--accent, #2dd4a7) 9%, transparent); }
+.fc-calc-tbl tr.us { background: color-mix(in srgb, var(--accent,#b97aff) 9%, transparent); }
 .fc-calc-tbl tr.us td { font-weight: 650; }
-.fc-calc-tbl tr.us .bar { background: var(--accent, #2dd4a7); opacity: 1; }
+.fc-calc-tbl tr.us .bar { background: var(--accent,#b97aff); opacity: 1; }
 
 .fc-calc-note {
   margin: 14px 0 0;

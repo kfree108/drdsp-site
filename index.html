@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dr. DSP — Fable 5 Runs Your Amazon DSP. Measured Honestly, In AMC.</title>
-<meta name="description" content="Dr. DSP is a managed Amazon DSP service — Demand-Side Platform programmatic advertising, not Delivery Service Partner courier work. Powered by Fable 5, operated by a team with $500M+ in managed spend across 100+ brands. Audiences, retargeting and new-to-brand acquisition, reconciled in Amazon Marketing Cloud because last-click cannot prove incrementality. You choose the approval level. Orbit software included free. Book a demo — first 30 days free." />
+<meta name="description" content="Dr. DSP is a managed Amazon DSP service — Demand-Side Platform programmatic advertising, not Delivery Service Partner courier work." />
 <link rel="canonical" href="https://drdsp.ai/" />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Dr. DSP — Fable 5 runs your Amazon DSP" />
-<meta property="og:description" content="Managed Amazon Demand-Side Platform advertising, measured in Amazon Marketing Cloud instead of last-click. You pick the approval level. Orbit software included free. First 30 days free." />
+<meta property="og:description" content="Managed Amazon Demand-Side Platform advertising, measured in Amazon Marketing Cloud instead of last-click. You pick the approval level." />
 <meta property="og:url" content="https://drdsp.ai/" />
 <meta property="og:image" content="https://drdsp.ai/assets/drdsp-poster.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -58,7 +58,7 @@
 <style>
 :root{
   --base:#08060f; --raised:#0e0b1a; --fg:#f4f4f6; --dim:#9a97a8; --line:#221e33;
-  --accent:#00ff9d; --cyan:#00e5ff; --amber:#f59e0b; --rose:#f4718b;
+  --accent:#b97aff; --accent-rgb:185,122,255; --cyan:#00e5ff; --amber:#f59e0b; --rose:#f4718b;
   /* tokens consumed by engagement.css so the injected CTAs render dark, not white */
   --card:#0e0b1a; --ink:#f4f4f6; --soft:#171327; --accent-fg:#06231a;
   --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'JetBrains Mono',monospace;
@@ -90,14 +90,14 @@ nav.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:
 .grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(244,244,246,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(244,244,246,.035) 1px,transparent 1px);background-size:48px 48px;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 100%);mask-image:radial-gradient(ellipse 80% 70% at 30% 25%,#000 35%,transparent 100%);}
 .hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding:64px 22px 68px;}
 @media(max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:34px;padding-top:44px;}}
-.free-pill{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(0,255,157,.35);background:rgba(0,255,157,.06);padding:6px 14px;border-radius:100px;margin-bottom:22px;}
+.free-pill{display:inline-block;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(var(--accent-rgb),.35);background:rgba(var(--accent-rgb),.06);padding:6px 14px;border-radius:100px;margin-bottom:22px;}
 .lede{font-size:18.5px;color:var(--dim);max-width:54ch;margin-top:20px;}
 .btn{display:inline-block;background:var(--accent);color:var(--base);font-weight:800;font-size:16.5px;padding:15px 30px;border-radius:9px;text-decoration:none;transition:filter .15s;}
 .btn:hover{filter:brightness(1.12);}
 .btn-sub{display:block;margin-top:12px;font-family:var(--mono);font-size:12.5px;color:var(--dim);}
 .doc-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.5);}
 .doc-frame video{display:block;width:100%;height:auto;}
-.doc-badge{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(8,6,15,.82);backdrop-filter:blur(8px);border:1px solid rgba(0,255,157,.25);border-radius:11px;padding:12px 14px;}
+.doc-badge{position:absolute;left:14px;bottom:14px;right:14px;background:rgba(8,6,15,.82);backdrop-filter:blur(8px);border:1px solid rgba(var(--accent-rgb),.25);border-radius:11px;padding:12px 14px;}
 .doc-badge .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);}
 .doc-badge .t{font-family:var(--display);font-weight:700;font-size:15.5px;margin-top:3px;}
 .doc-badge .s{font-size:12px;color:var(--dim);margin-top:2px;}
@@ -144,7 +144,7 @@ section{padding:80px 0;border-bottom:1px solid var(--line);}
 .ladder{display:grid;gap:16px;grid-template-columns:1fr 1fr;}
 @media(max-width:720px){.ladder{grid-template-columns:1fr;}}
 .lcol{border:1px solid var(--line);border-radius:13px;padding:26px;background:var(--raised);}
-.lcol.auto{border-color:rgba(0,255,157,.3);}
+.lcol.auto{border-color:rgba(var(--accent-rgb),.3);}
 .lcol h3{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;}
 .lcol.auto h3{color:var(--accent);} .lcol.human h3{color:var(--amber);}
 .lcol ul{margin:16px 0 0;padding:0;list-style:none;}
@@ -158,7 +158,7 @@ table{width:100%;border-collapse:collapse;font-size:15px;}
 th,td{padding:15px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
 thead th{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);font-weight:500;}
 thead th.us{color:var(--accent);}
-td.us{background:rgba(0,255,157,.045);font-weight:500;}
+td.us{background:rgba(var(--accent-rgb),.045);font-weight:500;}
 td:first-child{color:var(--dim);font-family:var(--mono);font-size:12.5px;}
 tbody tr:last-child td{border-bottom:none;}
 
@@ -184,7 +184,7 @@ tbody tr:last-child td{border-bottom:none;}
 .badge{margin-left:auto;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);border:1px solid rgba(245,158,11,.35);background:rgba(245,158,11,.08);padding:5px 11px;border-radius:100px;white-space:nowrap;}
 .tabs{display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0;}
 .tabs button{font-family:var(--mono);font-size:12px;color:var(--dim);background:transparent;border:1px solid var(--line);border-radius:8px 8px 0 0;border-bottom:none;padding:9px 15px;cursor:pointer;}
-.tabs button.on{color:var(--accent);background:rgba(0,255,157,.06);border-color:rgba(0,255,157,.3);}
+.tabs button.on{color:var(--accent);background:rgba(var(--accent-rgb),.06);border-color:rgba(var(--accent-rgb),.3);}
 .pane{padding:22px 16px 24px;border-top:1px solid var(--line);margin-top:-1px;}
 .update{border-left:2px solid var(--accent);padding:2px 0 2px 18px;max-width:74ch;}
 .update .stamp{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);}
@@ -196,9 +196,9 @@ tbody tr:last-child td{border-bottom:none;}
 .tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:5px;border:1px solid var(--line);color:var(--dim);}
 .tag.act{color:var(--cyan);border-color:rgba(0,229,255,.32);background:rgba(0,229,255,.06);}
 .tag.wait{color:var(--amber);border-color:rgba(245,158,11,.32);background:rgba(245,158,11,.07);}
-.tag.done{color:var(--accent);border-color:rgba(0,255,157,.32);background:rgba(0,255,157,.07);}
+.tag.done{color:var(--accent);border-color:rgba(var(--accent-rgb),.32);background:rgba(var(--accent-rgb),.07);}
 .prop h4{font-family:var(--display);font-size:17px;font-weight:700;margin:0 0 12px;letter-spacing:-.01em;line-height:1.3;}
-.prop h4 code{font-family:var(--mono);font-size:15px;color:var(--accent);background:rgba(0,255,157,.08);padding:1px 6px;border-radius:5px;}
+.prop h4 code{font-family:var(--mono);font-size:15px;color:var(--accent);background:rgba(var(--accent-rgb),.08);padding:1px 6px;border-radius:5px;}
 .rows{display:grid;gap:9px;margin:0 0 16px;}
 .row{display:grid;grid-template-columns:118px 1fr;gap:14px;font-size:14px;align-items:start;}
 @media(max-width:560px){.row{grid-template-columns:1fr;gap:2px;}}
@@ -210,8 +210,8 @@ tbody tr:last-child td{border-bottom:none;}
 .approve,.reject{font-family:var(--mono);font-size:12.5px;font-weight:700;border-radius:7px;padding:10px 16px;border:1px solid;cursor:default;}
 .approve{background:var(--accent);color:var(--base);border-color:var(--accent);}
 .reject{background:transparent;color:var(--dim);border-color:var(--line);}
-.mock-note{font-family:var(--mono);font-size:11px;color:#6d6a7c;margin-left:auto;align-self:center;}
-.shot-cap{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;margin-top:11px;letter-spacing:.03em;}
+.mock-note{font-family:var(--mono);font-size:11px;color:#8b8898;margin-left:auto;align-self:center;}
+.shot-cap{font-family:var(--mono);font-size:11.5px;color:#8b8898;margin-top:11px;letter-spacing:.03em;}
 
 /* ---------- approval levels ---------- */
 .levels{display:grid;gap:16px;grid-template-columns:repeat(3,1fr);}
@@ -242,11 +242,11 @@ tbody tr:last-child td{border-bottom:none;}
 .mod li{font-size:14.2px;color:#cfccdb;padding:6px 0;border-bottom:1px solid rgba(34,30,51,.55);}
 .mod li:last-child{border-bottom:none;}
 .mod li span{color:var(--dim);font-size:12.8px;display:block;}
-.free-band{border:1px solid rgba(0,255,157,.28);background:linear-gradient(180deg,rgba(0,255,157,.06),rgba(14,11,26,.9));border-radius:14px;padding:26px 28px;margin-top:28px;}
+.free-band{border:1px solid rgba(var(--accent-rgb),.28);background:linear-gradient(180deg,rgba(var(--accent-rgb),.06),rgba(14,11,26,.9));border-radius:14px;padding:26px 28px;margin-top:28px;}
 .free-band h3{font-size:21px;margin-bottom:8px;}
 .free-band .d{color:var(--dim);font-size:15px;margin:0;max-width:72ch;}
 
-.price-card{border:1px solid rgba(0,255,157,.28);border-radius:16px;background:linear-gradient(180deg,rgba(0,255,157,.05),rgba(14,11,26,.9));padding:40px;text-align:center;max-width:640px;margin:0 auto;}
+.price-card{border:1px solid rgba(var(--accent-rgb),.28);border-radius:16px;background:linear-gradient(180deg,rgba(var(--accent-rgb),.05),rgba(14,11,26,.9));padding:40px;text-align:center;max-width:640px;margin:0 auto;}
 @media(max-width:520px){.price-card{padding:28px 20px;}}
 .price-num{font-family:var(--display);font-size:clamp(30px,5.2vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.1;}
 .price-num small{font-size:18px;color:var(--dim);font-weight:600;display:block;margin-top:10px;letter-spacing:0;}
@@ -266,13 +266,13 @@ tbody tr:last-child td{border-bottom:none;}
 /* ---------- family ---------- */
 .family{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(275px,1fr));margin-top:26px;}
 .fam{border:1px solid var(--line);border-radius:12px;background:var(--raised);padding:20px 22px;text-decoration:none;color:inherit;display:block;transition:border-color .15s,transform .15s;}
-.fam:hover{border-color:rgba(0,255,157,.35);transform:translateY(-2px);}
+.fam:hover{border-color:rgba(var(--accent-rgb),.35);transform:translateY(-2px);}
 .fam .nm{font-family:var(--display);font-weight:700;font-size:17px;}
 .fam .url{font-family:var(--mono);font-size:11px;color:var(--accent);letter-spacing:.04em;margin-top:3px;}
 .fam .why{font-size:13.8px;color:var(--dim);margin-top:9px;line-height:1.6;}
 
 footer{padding:40px 0 60px;}
-footer .fine{font-family:var(--mono);font-size:11.5px;color:#6d6a7c;max-width:68ch;line-height:1.7;}
+footer .fine{font-family:var(--mono);font-size:11.5px;color:#8b8898;max-width:68ch;line-height:1.7;}
 .cta-final{text-align:center;}
 .cta-final .lede{margin-left:auto;margin-right:auto;}
 </style>
@@ -515,7 +515,7 @@ nav.top ul a:hover{color:var(--accent)}
               <div class="row rb"><dt>Rollback</dt><dd>Budget returns to the original split if total attributed purchases fall more than <b>12% for 5 consecutive days</b>.</dd></div>
             </dl>
             <div class="actions">
-              <span class="reject" style="border-color:rgba(0,255,157,.3);color:var(--accent)">View in change log</span>
+              <span class="reject" style="border-color:rgba(var(--accent-rgb),.3);color:var(--accent)">View in change log</span>
               <span class="mock-note">Level 3 · applied inside guardrails, logged</span>
             </div>
           </div>
