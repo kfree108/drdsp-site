@@ -114,7 +114,9 @@
     placed.forEach(function (el) { io.observe(el); });
   }
 
-  // ── scroll depth + the 30% popup ─────────────────────────────────────────
+  // ── scroll depth + the popup ─────────────────────────────────────────────
+  // Fires at 40%, not 30%: on a long article 30% still lands mid-argument,
+  // which reads as interrupting rather than offering.
   function depth() {
     var h = document.documentElement.scrollHeight - window.innerHeight;
     return h > 0 ? (window.pageYOffset / h) : 0;
@@ -169,7 +171,7 @@
     document.body.appendChild(wrap);
     if (!reduce) requestAnimationFrame(function () { wrap.classList.add('on'); });
     else wrap.classList.add('on');
-    track('popup_shown', { trigger: 'scroll_30' });
+    track('popup_shown', { trigger: 'scroll_40' });
 
     var prev = document.activeElement;
     var x = wrap.querySelector('.fc-pop-x');
@@ -216,7 +218,7 @@
         });
       });
       var longEnough = document.documentElement.scrollHeight > window.innerHeight * 2.2;
-      if (!popped && longEnough && d >= 0.30) {
+      if (!popped && longEnough && d >= 0.40) {
         popped = true;
         try { sessionStorage.setItem('fc_popped', '1'); } catch (e) {}
         popup();

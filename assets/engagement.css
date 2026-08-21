@@ -120,12 +120,15 @@
 .fc-pop-card{
   padding:0;                       /* sections own their own padding now */
   overflow:hidden;
-  border:1px solid color-mix(in srgb,var(--accent,#2dd4a7) 22%,transparent);
+  border:1px solid var(--line,#e6e4ee);
+  box-shadow:0 20px 56px rgba(0,0,0,.30);
 }
 /* a single hairline of accent at the top edge, instead of colour everywhere */
+/* a whisper of accent at the top edge — enough to belong, not enough to shout */
 .fc-pop-card::before{
   content:"";display:block;height:2px;
-  background:linear-gradient(90deg,var(--accent,#2dd4a7),transparent 78%);
+  background:linear-gradient(90deg,
+    color-mix(in srgb,var(--accent,#2dd4a7) 70%,transparent),transparent 70%);
 }
 
 .fc-pop-eyebrow{
@@ -189,3 +192,14 @@
   .fc-pop-proof{padding-left:22px;padding-right:22px}
   .fc-pop-card h3{font-size:20px}
 }
+
+/* The full-strength accent is fine inline, but at modal size on a dark ground it
+   glares. Dial the fill back and let the border and weight carry it instead. */
+.fc-pop-card .fc-cta-btn{
+  background:color-mix(in srgb,var(--accent,#2dd4a7) 88%,#0b0912);
+  box-shadow:0 1px 0 color-mix(in srgb,var(--accent,#2dd4a7) 40%,transparent) inset;
+}
+.fc-pop-card .fc-cta-btn:hover{
+  background:var(--accent,#2dd4a7);filter:none;transform:none;
+}
+.fc-pop{background:rgba(6,5,12,.62);backdrop-filter:blur(2px)}
